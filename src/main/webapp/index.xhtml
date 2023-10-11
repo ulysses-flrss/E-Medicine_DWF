@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: ulise
+  Date: 10/10/2023
+  Time: 10:43 AM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/root-style.css" />
+    <h:outputStylesheet name="css/cita-style.css" />
+</h:head>
+
+<h:body>
+    <h:form id="yourFormId" styleClass="all-container">
+        <div class="perfil">
+            <h:outputLabel for="idPerfil" value="Perfil:"/>
+            <h:selectOneMenu id="idPerfil" styleClass="selectDinamic">
+                <!-- Add selectItems here -->
+            </h:selectOneMenu>
+            <div class="citaFamiliar">
+                <h:outputLabel for="citaFamiliar" value="Cita Familiar:" styleClass="genero" />
+                <h:selectBooleanCheckbox id="citaFamiliar" value="#{yourBean.citaFamiliar}" required="true" />
+            </div>
+        </div>
+
+        <div class="peso">
+            <h:outputLabel for="pe" value="Peso(lb):" />
+            <h:inputText id="pe" value="#{yourBean.peso}" placeholder="Peso en Libras" />
+        </div>
+
+        <div class="altura">
+            <h:outputLabel for="al" value="Altura(cm):" />
+            <h:inputText id="al" value="#{yourBean.altura}" placeholder="Altura en cm" />
+        </div>
+
+        <div class="fecha">
+            <h:outputLabel for="fn" value="Fecha de Nacimiento:" />
+            <h:inputText id="fn" value="#{yourBean.fechaNacimiento}" required="true" />
+        </div>
+
+        <div class="especialidad-medica">
+            <h:outputLabel for="em" value="Especialidad Médica:" />
+            <h:selectOneMenu id="em" styleClass="selectDinamic">
+                <f:selectItem itemValue="" itemLabel="-- Seleccione una Especialidad --" />
+                <!-- Add selectItems here -->
+            </h:selectOneMenu>
+        </div>
+
+        <div class="doctor">
+            <h:outputLabel for="doctores" value="Elija el doctor:" />
+            <h:selectOneMenu id="doctores" styleClass="selectDinamic">
+                <f:selectItem itemValue="" itemLabel="-- Seleccione el Doctor --" />
+                <!-- Add selectItems here -->
+            </h:selectOneMenu>
+        </div>
+
+        <div class="fecha">
+            <h:outputLabel for="fechaCita" value="Fecha de Cita:" />
+            <h:inputText id="fechaCita" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
+        </div>
+
+        <div class="doctor">
+            <h:outputLabel for="hc" value="Hora de Cita" />
+            <h:selectOneMenu id="hc">
+                <f:selectItem itemValue="" itemLabel="-- Seleccione la Hora de su Cita --" />
+                <f:selectItem itemValue="7:00:00" itemLabel="7:00am" />
+                <!-- Add more selectItems here -->
+            </h:selectOneMenu>
+        </div>
+
+        <div class="enfermedades">
+            <h:outputLabel for="enfermedades" value="Enfermedades Crónicas y Alergias (sino tiene ninguna deje vacío este campo)" />
+            <h:inputTextarea id="enfermedades" value="#{yourBean.enfermedades}" />
+        </div>
+
+        <div class="motivo">
+            <h:outputLabel for="razon" value="¿Cuál es la razón de su cita? (escriba sus síntomas)" />
+            <h:inputTextarea id="razon" value="#{yourBean.razon}" />
+        </div>
+
+        <div class="submit">
+            <h:commandButton id="programarCita" value="Programar Cita" action="#{yourBean.programarCita}" styleClass="disenoBoton" />
+        </div>
+    </h:form>
+</h:body>
+
+</html>
