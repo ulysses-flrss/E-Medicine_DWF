@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Leandro
+  Date: 13/10/2023
+  Time: 17:38
+-->
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 template="layouts/layout.xhtml">
+    <ui:define name="contenido">
+        <h:body>
+            <h:form>
+                <h:panelGrid columns="1">
+                    <!--<h:graphicImage name="assets/imgs/logoEMedicine.png" alt="Logo E-Medicine" styleClass="logo" />-->
+                    <h:outputText styleClass="welcome-message" value="Bienvenido a E-Medicine" />
+                    <hr />
+                    <h:outputText styleClass="welcome-info">
+                        A continuación podrá elegir "Entrar como invitado", lo cual le permitirá entrar a la página pero no programar citas ni registrar familiares. Por otro lado, puede iniciar sesión si previamente fue a la clínica y le brindaron los datos de su cuenta.
+                    </h:outputText>
+                    <h:commandLink action="controller/ctrlWelcome?accion=invitado" styleClass="submit">Entrar Como Invitado</h:commandLink>
+                    <h:commandLink action="controller/ctrlWelcome?accion=inicioSesion" styleClass="submit">Iniciar Sesión</h:commandLink>
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Leandro
+  Date: 13/10/2023
+  Time: 17:03
+-->
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 template="layouts/layout.xhtml">
+    <ui:define name="contenido">
+        <h:body>
+            <h:form>
+                <h:panelGroup layout="block" styleClass="allContainer">
+                    <h:panelGroup layout="block" styleClass="anuncio-container">
+                        <h:panelGroup layout="block" styleClass="head-anuncio-container">
+                            <h:outputText styleClass="head-anuncio" value="Redactar Anuncio" />
+                        </h:panelGroup>
+
+                        <h:panelGroup layout="block" styleClass="contenido-anuncio">
+                            <h:form>
+                                <h:inputHidden id="idUsuario" value="#{datos[0]}" />
+                                <h:inputHidden id="nombre" value="#{datos[1]}" />
+                                <h:inputTextarea id="contenidoAnuncio" styleClass="message-area" cols="30" rows="10" minlength="10" maxlength="255" />
+                                <h:commandButton styleClass="disenoBoton" value="Publicar Anuncio" action="#{bean.publicarAnuncio}" />
+                            </h:form>
+                        </h:panelGroup>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="mainArticle">
+                        <h:dataTable value="#{bean.anuncios}" var="anun">
+                            <h:column>
+                                <h:outputText title="Escritor del Anuncio" value="#{anun.nombre}" />
+                            </h:column>
+                            <h:column>
+                                <h:outputText title="Fecha de Publicación del Anuncio" value="#{anun.fechaPublicacion}" />
+                            </h:column>
+                            <h:column>
+                                <h:outputText title="Contenido del Anuncio" value="#{anun.contenidoAnuncio}" />
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </h:form>
+        </h:body>
+
+    </ui:define>
+</ui:composition>

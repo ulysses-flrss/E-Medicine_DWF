@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 template="layouts/layout.xhtml">
+    <ui:define name="contenido">
+        <h:body>
+            <h:form>
+                <h:panelGroup layout="block" styleClass="allContainer">
+                    <h:panelGroup layout="block" styleClass="bienvenida" id="container-bienvenida">
+                        <h:panelGroup layout="block" styleClass="imagen-texto">
+                            <h:panelGroup layout="block" styleClass="img-layout">
+                                <h:graphicImage library="images" name="imagenPrueba.png" alt="Imagen de Perfil" styleClass="profile-picture" title="Imagen de Perfil" />
+                            </h:panelGroup>
+                            <h:outputText styleClass="editar" title="Editar Perfil" />
+                        </h:panelGroup>
+                        <h:panelGroup layout="block" styleClass="bienvenida-text">
+                            <h:outputText value="Bienvenido/a " />
+                            <h:outputText value="#{bean.getSalutation(datos)}" />
+                        </h:panelGroup>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="anuncio-container">
+                        <h:panelGroup layout="block" styleClass="head-anuncio-container">
+                            <h:outputText styleClass="head-anuncio" value="Redactar Anuncio" />
+                        </h:panelGroup>
+
+                        <h:panelGroup layout="block" styleClass="contenido-anuncio">
+                            <h:form>
+                                <h:inputHidden id="idUsuario" value="#{datos[0]}" />
+                                <h:inputHidden id="nombre" value="#{datos[1]}" />
+                                <h:inputTextarea id="contenidoAnuncio" styleClass="message-area" cols="30" rows="10" minlength="10" maxlength="255" />
+                                <h:commandButton styleClass="disenoBoton" value="Publicar Anuncio" action="#{bean.publicarAnuncio}" />
+                            </h:form>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="mainArticle">
+                    <h:panelGroup layout="block" styleClass="tittleE">
+                        <h:outputText value="Últimos Anuncios:" />
+                    </h:panelGroup>
+
+                    <!-- Utiliza componentes JSF para mostrar los últimos anuncios -->
+                    <h:dataTable value="#{bean.anuncios}" var="anun">
+                        <h:column>
+                            <h:outputText title="Escritor del Anuncio" value="#{anun.nombre}" />
+                        </h:column>
+                        <h:column>
+                            <h:outputText title="Fecha de Publicación del Anuncio" value="#{anun.fechaPublicacion}" />
+                        </h:column>
+                        <h:column>
+                            <h:outputText title="Contenido del Anuncio" value="#{anun.contenidoAnuncio}" />
+                        </h:column>
+                    </h:dataTable>
+
+                    <h:panelGroup layout="block" styleClass="tittleE">
+                        <h:outputText value="Principales Especialidades:" />
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="cards">
+                        <!-- Utiliza componentes JSF para mostrar las especialidades médicas -->
+                        <h:panelGroup layout="block" styleClass="card">
+                            <h:panelGroup layout="block" styleClass="face front">
+                                <!--<h:graphicImage library="images" name="corazon.png" alt="" styleClass="imagenEspecialidad" />-->
+                                <h:outputText value="Cardiología" />
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" styleClass="face back">
+                                <h:outputText value="Cardiología" />
+                                <h:outputText value="La cardiología es la rama de la medicina que se encarga del estudio, diagnóstico y tratamiento de las enfermedades del corazón y del sistema circulatorio." />
+                                <h:outputLink value="cardiologia.jsf" styleClass="link">
+                                    <h:outputText value="Ver más" />
+                                </h:outputLink>
+                            </h:panelGroup>
+                        </h:panelGroup>
+
+                        <!-- Repite este bloque para otras especialidades médicas -->
+                        <!-- ... -->
+
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="booton">
+                    <h:outputLink value="especialidadesMedicas.jsf" styleClass="links">
+                        <h:commandButton styleClass="botonVerMas">
+                            <h:outputText value="Ver más+" />
+                        </h:commandButton>
+                    </h:outputLink>
+                </h:panelGroup>
+            </h:form>
+        </h:body>
+
+    </ui:define>
+</ui:composition>

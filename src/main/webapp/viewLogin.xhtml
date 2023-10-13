@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Leandro
+  Date: 13/10/2023
+  Time: 17:30
+-->
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 template="layouts/layout.xhtml">
+    <ui:define name="contenido">
+        <h:body>
+            <h:form>
+                <h:panelGroup layout="block" styleClass="inicio-register">
+                    <!--<h:graphicImage library="images" name="logoEMedicine.png" alt="" styleClass="logo" />-->
+
+                    <h1 class="bienvenida-register">Bienvenido a E-Medicine</h1>
+                </h:panelGroup>
+
+                <h:panelGroup layout="block">
+                    <h:panelGroup layout="block" styleClass="form-container">
+                        <h:form id="formularioE">
+                            <h:panelGroup layout="block" styleClass="form-login">
+                                <h:panelGroup layout="block" styleClass="codUsuario">
+                                    <h:outputLabel for="idUsuario" value="Código de Usuario:" />
+                                    <h:inputText id="idUsuario" name="idUsuario" placeholder="Ingrese su Código de Usuario" />
+
+                                </h:panelGroup>
+
+                                <h:panelGroup layout="block" styleClass="password">
+                                    <h:outputLabel for="password" value="Contraseña:" />
+                                    <h:inputSecret id="password" name="password" placeholder="Ingrese su contraseña" />
+
+                                </h:panelGroup>
+
+                                <h:panelGroup layout="block" styleClass="submit">
+                                    <h:commandButton type="submit" action="#{bean.login}" value="Iniciar Sesión" styleClass="enviar" />
+
+                                    <h:panelGroup layout="block" styleClass="no-account">
+                                        <h:commandLink action="#{bean.viewRegister}" styleClass="submit-text">No tengo Cuenta</h:commandLink>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                            </h:panelGroup>
+                        </h:form>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </h:form>
+        </h:body>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Leandro
+  Date: 12/10/2023
+  Time: 21:03
+-->
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 template="layouts/layout.xhtml">
+    <ui:define name="contenido">
+        <h:form>
+            <h:panelGroup layout="block" styleClass="allContainer">
+                <h:panelGroup layout="block" styleClass="bienvenida" id="container-bienvenida">
+                    <h:commandLink action="#{beanAdmin.redirectToProfile}" styleClass="imagen-texto">
+                        <h:panelGroup layout="block" styleClass="img-layout">
+                            <!--<h:graphicImage library="images" name="imagenPrueba.png" alt="Imagen de Perfil" styleClass="profile-picture" title="Imagen de Perfil" />-->
+                        </h:panelGroup>
+                        <h:outputText styleClass="editar" title="Editar Perfil" />
+                    </h:commandLink>
+                    <h:outputText id="bienvenida" value="Bienvenido Admin #{datos[1]}" title="Bienvenida" />
+                </h:panelGroup>
+
+                <h:panelGroup layout="block" styleClass="anuncio-container">
+                    <h:panelGroup layout="block" styleClass="head-anuncio-container">
+                        <h:outputText styleClass="head-anuncio" value="Redactar Anuncio" />
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" styleClass="contenido-anuncio">
+                        <h:form>
+                            <h:inputHidden id="idUsuario" value="#{datos[0]}" />
+                            <h:inputHidden id="nombre" value="#{datos[1]}" />
+                            <h:inputTextarea id="contenidoAnuncio" styleClass="message-area" cols="30" rows="10" minlength="10" maxlength="255" />
+                            <h:commandButton styleClass="disenoBoton" value="Publicar Anuncio" action="#{beanAdmin.publicarAnuncio}" />
+                        </h:form>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" styleClass="mainArticle">
+                <h:panelGroup layout="block" styleClass="tittleE">
+                    <h:outputText value="Últimos Anuncios:" />
+                </h:panelGroup>
+
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" styleClass="mainArticle">
+                <h:panelGroup layout="block" styleClass="tittleE">
+                    <h:outputText value="Principales Especialidades:" />
+                </h:panelGroup>
+
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>
