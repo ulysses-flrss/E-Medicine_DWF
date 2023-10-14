@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="../layouts/layout.xhtml">
+   <ui:define name="contenido">
+      <main>
+         <div class="inicio-registro">
+            <h:graphicImage library="imgs" name="logoEMedicine.png" alt="Logo de E-Medicine" class="logo" />
+            <h1 class="bienvenida-registro">Crea Un Perfil Familiar</h1>
+         </div>
+         <article>
+            <section class="form-container">
+               <h:form>
+                  <h:inputHidden id="idUsuario" value="#{familiarBean.idUsuario}" />
+                  <h:inputHidden id="idPerfil" value="#{familiarBean.idPerfil}" />
+                  <div class="third-line">
+                     <div class="nombres">
+                        <h:outputLabel for="nom">Nombres: *</h:outputLabel>
+                        <h:inputText id="nom" value="#{familiarBean.nombres}" placeholder="Ingrese sus Nombres" />
+                     </div>
+                     <div class="apellidos">
+                        <h:outputLabel for="ape">Apellidos: *</h:outputLabel>
+                        <h:inputText id="ape" value="#{familiarBean.apellidos}" placeholder="Ingrese sus Apellidos" />
+                     </div>
+                  </div>
+                  <div class="second-line">
+                     <div class="peso">
+                        <h:outputLabel for="pe">Peso(lb): *</h:outputLabel>
+                        <h:inputText id="pe" value="#{familiarBean.peso}" placeholder="Peso en Libras" />
+                     </div>
+                     <div class="altura">
+                        <h:outputLabel for="al">Altura(cm): *</h:outputLabel>
+                        <h:inputText id="al" value="#{familiarBean.altura}" placeholder="Altura en cm" />
+                     </div>
+                  </div>
+                  <div class="third-line">
+                     <div class="fecha">
+                        <h:outputLabel for="fn">Fecha de Nacimiento: *</h:outputLabel>
+                        <h:inputText id="fn" type="date" value="#{familiarBean.fechaNacimiento}" />
+                     </div>
+                     <div class="genre">
+                        <div class="masculino">
+                           <h:outputLabel for="masculino">Masculino</h:outputLabel>
+                           <h:selectBooleanCheckbox id="masculino" value="#{familiarBean.genero}" />
+                        </div>
+                        <div class="female">
+                           <h:outputLabel for="femenino">Femenino</h:outputLabel>
+                           <h:selectBooleanCheckbox id="femenino" value="#{familiarBean.genero}" />
+                        </div>
+                     </div>
+                     <div class="municipio">
+                        <h:outputLabel for="municipio">Municipio *</h:outputLabel>
+                        <h:selectOneMenu id="municipio" value="#{familiarBean.municipio}">
+                           <f:selectItem itemValue="" itemLabel="-- Seleccione un Municipio" />
+                           <f:selectItem itemValue="San Salvador" itemLabel="San Salvador" />
+                           <!-- Agregar el resto de las opciones -->
+                        </h:selectOneMenu>
+                     </div>
+                  </div>
+                  <div class="fourth-line">
+                     <h:outputLabel for="enfermedades">¿Tiene alguna Enfermedad o Alergia? Describalas (Si no tiene, omita este campo)</h:outputLabel>
+                  </div>
+                  <div class="fifth-line">
+                     <h:inputTextarea id="enfermedades" value="#{familiarBean.enfermedades}" cols="50" rows="1" maxlength="255" />
+                  </div>
+                  <h:commandButton value="Crear Perfil" styleClass="disenoBoton" action="#{familiarBean.crearPerfil}" />
+               </h:form>
+            </section>
+         </article>
+      </main>
+   </ui:define>
+</ui:composition>

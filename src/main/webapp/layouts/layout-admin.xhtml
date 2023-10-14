@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: ulise
-  Date: 10/11/2023
-  Time: 5:31 AM
--->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
 
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
+<h:head>
+    <ui:include src="head.xhtml" />
+</h:head>
+
+<h:body>
     <nav class="barNav">
         <ul class="barNavegacion" id="nav">
             <li class="bar-item">
@@ -22,30 +24,30 @@
             </li>
 
             <li class="bar-item" id="li-cita" title="Programar Cita">
-                <h:outputLink value="private/paciente/programarCita.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-book-medical icon"></i>
-                    <span class="link-text">Programar Cita Médica</span>
+                <h:outputLink value="#" styleClass="bar-link">
+                    <i class='fa-solid fa-user-gear icon'></i>
+                    <span class="link-text">Gestionar Usuarios</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-citasP" title="Familiares">
-                <h:outputLink value="private/paciente/citasProgramadas.xhtml" styleClass="bar-link">
+                <h:outputLink value="#" styleClass="bar-link">
                     <i class="fa-regular fa-calendar-check icon"></i>
-                    <span class="link-text">Citas Programadas</span>
-                </h:outputLink>
-            </li>
-
-            <li class="bar-item" id="li-familiares" title="Familiares">
-                <h:outputLink value="private/paciente/familiares.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-person-breastfeeding icon"></i>
-                    <span class="link-text">Perfiles Familiares</span>
+                    <span class="link-text">Gestionar Citas</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-doctor" title="Especialidades Médicas">
-                <h:outputLink value="public/especialides.xhtml" styleClass="bar-link">
+                <h:outputLink value="#" styleClass="bar-link">
                     <i class="fa-solid fa-user-doctor icon"></i>
-                    <span class="link-text">Especialidades Medicas</span>
+                    <span class="link-text">Gestionar Especialidades Medicas</span>
+                </h:outputLink>
+            </li>
+
+            <li class="bar-item" id="li-comentarios" title="Anuncios">
+                <h:outputLink value="#" styleClass="bar-link">
+                    <i class='fa-solid fa-bullhorn icon'></i>
+                    <span class="link-text">Gestionar Anuncios</span>
                 </h:outputLink>
             </li>
 
@@ -53,13 +55,6 @@
                 <h:outputLink value="public/faq.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-clipboard-question icon"></i>
                     <span class="link-text">Preguntas Frecuentes</span>
-                </h:outputLink>
-            </li>
-
-            <li class="bar-item" id="li-comentarios" title="Anuncios">
-                <h:outputLink value="#" styleClass="bar-link">
-                    <i class="fa-solid fa-message icon"></i>
-                    <span class="link-text">Anuncios</span>
                 </h:outputLink>
             </li>
 
@@ -72,11 +67,18 @@
 
             <li class="bar-item">
                 <h:outputLink value="#" styleClass="bar-link">
-                    <i class="fa-solid fa-user icon"></i>
+                    <i class='fa-solid fa-right-to-bracket icon'></i>
                     <span class="link-text">Cerrar Sesión</span>
                 </h:outputLink>
             </li>
         </ul>
     </nav>
 
-</ui:composition>
+    <ui:insert name="contenido">
+        Default content
+    </ui:insert>
+
+    <ui:include src="footer.xhtml" />
+</h:body>
+
+</html>
