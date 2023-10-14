@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0e6e3;
+}
+
+.all-container {
+    display: grid;
+    padding-top: 4rem;
+    background-color: #e0e6e3;
+}
+.add-button {
+    width: 20em;
+    height: 20em;
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    align-self: center;
+    align-items: center;
+    transition: 250ms all;
+}
+
+.add-button:hover #add{
+    transition: 250ms all;
+    text-shadow: 0px 0px 5px var(--shadow-color);
+}
+
+.add-button:active #add{
+    transition: 100ms all;
+    text-shadow: 0px 0px 5px var(--shadow-color);
+    filter: brightness(0.5);
+    transform: scale(0.90);
+}
+
+#add {
+    font-size: 10em;
+    text-shadow: 0px 0px 0px var(--shadow-color);
+    color: var(--aquaBright-body-color);
+    width: 100%;
+    margin: auto;
+}
+
+.add-image {
+    width: 10rem;
+    margin-left: 8rem;
+}
+
+.familiar-profiles {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    width: 90%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.familiar-card {
+    margin: 1em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--skinBright-body-color);
+    padding: 2em;
+    border-radius: 10px;
+    width: 20em;
+    height: 20em;
+}
+
+.profile-picture-container {
+    width: 5em;
+    height: 5em;
+    border-radius: 100%;
+}
+
+.familiares-profile-picture {
+    width: 100%;
+    height: 100%;
+}
+
+.familiares-profile-name {
+    font-family: var(--footerFont);
+    color: black;
+    margin: 0.25em;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align:center;
+}
+
+.familiares-functions {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 1.5rem;
+    align-items: center;
+}
+
+#eliminar, #modificar{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#iconTrash, #iconEditar {
+    font-size: 1em;
+    border-radius: 10px;
+    text-shadow: 3px 2px 3px black;
+}

@@ -5,8 +5,8 @@
 }
 
 body{
-    height: 100vh;
-    color: black;
+  height: 100vh;
+  color: black;
 }
 
 .all-container {
@@ -167,34 +167,34 @@ input:focus:not(.submit input) {
 }
 
 @media screen and (max-width: 485px) {
+    
+.perfil {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
 
-    .perfil {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    .submit {
-        display: grid;
-        width: 100%;
-        margin: 3em;
-        justify-content: center;
-        grid-area: auto;
-    }
+.submit {
+    display: grid;
+    width: 100%;
+    margin: 3em;
+    justify-content: center;
+    grid-area: auto;
+}
 
 }
 
 @media screen and (max-width: 759px) and (min-width: 481px) {
+    
+.perfil {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
 
-    .perfil {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    .submit {
-        display: grid;
-        width: 100%;
-        margin: 3em;
-        justify-content: center;
-        grid-area: auto;
-    }
+.submit {
+    display: grid;
+    width: 100%;
+    margin: 3em;
+    justify-content: center;
+    grid-area: auto;
+}
 }
