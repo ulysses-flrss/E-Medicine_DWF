@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="../../layouts/layout-paciente.xhtml">
+    <ui:define name="contenido">
+        <main class="allContainer">
+            <div class="bienvenida" id="container-bienvenida">
+                <a href="#" class="imagen-texto">
+                    <div class="img-layout"><h:graphicImage library="imgs" name="imagenPrueba.png" alt="Imagen de Perfil" class="profile-picture" title="Imagen de Perfil" /></div>
+                </a>
+                <span id="bienvenida" title="Bienvenida">Bienvenido/a Usuario/a</span>
+            </div>
+            <article class="mainArticle">
+                <main class="tittleE">
+                    <p>Últimos Anuncios:</p>
+                </main>
+                <section class="tablonAnuncios">
+                    <div class="objetoTablon" id="autor">
+                        <span class="autor-text" title="Escritor del Anuncio">Yo</span>
+                    </div>
+                    <div class="objetoTablon" id="fechaPublicacion">
+                        <span class="fecha-text" title="Fecha de Publicación del Anuncio">11-10-23 21:51</span>
+                    </div>
+                    <div class="objetoTablon" id="descripcion">
+                        <p title="Contenido del Anuncio">
+                            Prueba
+                        </p>
+                    </div>
+                </section>
+                <h:link outcome="#" styleClass="links">
+                    <h:outputText styleClass="botonVerMas" value="Ver más+"></h:outputText>
+                </h:link>
+            </article>
+            <main class="tittleE">
+                <p>Principales Especialidades:</p>
+            </main>
+            <main class="cards">
+                <div class="card">
+                    <div class="face front">
+                        <h:graphicImage library="imgs" name="corazon.png" alt="" class="imagenEspecialidad" />
+                        <h3>Cardiologia</h3>
+                    </div>
+                    <div class="face back">
+                        <h3>Cardiologia</h3>
+                        <p>La cardiología es la rama de la medicina que se encarga del estudio, diagnóstico y tratamiento de las enfermedades del corazón y del sistema circulatorio.</p>
+                        <div class="link">
+                            <h:link outcome="cardiologia.php">Ver más </h:link>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face front">
+                        <h:graphicImage library="imgs" name="medicina.png" alt="" class="imagenEspecialidad" />
+                        <h3>Medicina General</h3>
+                    </div>
+                    <div class="face back">
+                        <h3>Medicina General</h3>
+                        <p>La medicina general constituye el primer nivel de atención médica y es imprescindible para la prevención, detección, tratamiento y seguimiento de las enfermedades.</p>
+                        <div class="link">
+                            <h:link outcome="medicinageneral.php">Ver mas</h:link>
+                        </div>
+                    </div>
+                </div>
+                <h:link outcome="../../public/especialidades.xhtml" styleClass="links">
+                        <h:outputText styleClass="botonVerMas" value="Ver más+" />
+                </h:link>
+            </main>
+        </main>
+    </ui:define>
+</ui:composition>

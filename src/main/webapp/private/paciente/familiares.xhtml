@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="../../layouts/layout-paciente.xhtml">
+    <ui:define name="contenido">
+        <main class="all-container">
+            <article>
+                <section class="familiar-profiles">
+                    <div class="familiar-card">
+                        <div class="profile-picture-container">
+                            <h:graphicImage library="imgs" name="imagenPrueba.png" alt="" class="familiares-profile-picture" />
+                        </div>
+                        <h:outputText value="Famliar 1" styleClass="familiares-profile-name" />
+                        <div class="familiares-functions">
+                            <h:form>
+                                <a href="#">
+                                    <h:commandButton value="Editar" styleClass="btn btn-primary" />
+                                </a>
+                                <h:commandButton value="Eliminar" styleClass="btn btn-danger" action="#" />
+                            </h:form>
+                        </div>
+                    </div>
+
+                    <div class="add-button">
+                        <a href="./crearPerfilesFamiliares.xhtml">
+                            <i class="fa-solid fa-plus" id="add" />
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </ui:define>
+</ui:composition>
