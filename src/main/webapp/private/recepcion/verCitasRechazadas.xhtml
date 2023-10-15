@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+        template="/layouts/layout-recepcionista.xhtml">
+
+      <ui:define name="head">
+          <h:outputStylesheet library="css" name="tabla.css"/>
+      </ui:define>
+
+      <ui:define name="contenido">
+             <h:form>
+                 <h:panelGroup layout="block" styleClass="all-container">
+                     <h:panelGroup layout="block" styleClass="table-responsive">
+                         <h:dataTable value="#{bean.citasFamiliar}" var="citaFamiliar">
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="ID Familiar" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.idPerfil}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Nombre Completo" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.nombre}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Fecha de la Cita" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.fechaCita}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Hora de la Cita" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.horaCita}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Enfermedades/Alergias" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.enfermedades}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Razon de Cita/Sintomas" />
+                                 </f:facet>
+                                 <h:outputText value="#{citaFamiliar.razonCita}" />
+                             </h:column>
+                             <h:column>
+                                 <f:facet name="header">
+                                     <h:outputText value="Razón de Rechazo" />
+                                 </f:facet>
+                                 <h:outputText value="Hola"/>
+                             </h:column>
+                         </h:dataTable>
+                     </h:panelGroup>
+                 </h:panelGroup>
+             </h:form>
+      </ui:define>
+   </ui:composition>
+

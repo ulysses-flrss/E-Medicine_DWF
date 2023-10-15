@@ -17,63 +17,36 @@
     <nav class="barNav">
         <ul class="barNavegacion" id="nav">
             <li class="bar-item">
-                <h:outputLink value="./" styleClass="bar-link">
+                <h:outputLink value="../recepcion/index.xhtml" styleClass="bar-link">
                     <h:graphicImage library="imgs" name="logoEMedicine.png" alt="Logo de E-Medicine" class="logo" title="Inicio" />
                     <span class="link-text" id="welcome-text">E-Medicine</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-cita" title="Programar Cita">
-                <h:outputLink value="private/paciente/programarCita.xhtml" styleClass="bar-link">
+                <h:outputLink value="../recepcion/index.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-book-medical icon"></i>
-                    <span class="link-text">Programar Cita Médica</span>
+                    <span class="link-text">Citas Pendientes</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-citasP" title="Familiares">
-                <h:outputLink value="private/paciente/citasProgramadas.xhtml" styleClass="bar-link">
+                <h:outputLink value="../recepcion/verCitasAprobadas.xhtml" styleClass="bar-link">
                     <i class="fa-regular fa-calendar-check icon"></i>
-                    <span class="link-text">Citas Programadas</span>
+                    <span class="link-text">Citas Aprobadas</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-familiares" title="Familiares">
-                <h:outputLink value="private/paciente/familiares.xhtml" styleClass="bar-link">
+                <h:outputLink value="../recepcion/verCitasRechazadas.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-person-breastfeeding icon"></i>
-                    <span class="link-text">Perfiles Familiares</span>
+                    <span class="link-text">Citas Rechazadas</span>
                 </h:outputLink>
             </li>
 
-            <li class="bar-item" id="li-doctor" title="Especialidades Médicas">
-                <h:outputLink value="public/especialides.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-user-doctor icon"></i>
-                    <span class="link-text">Especialidades Medicas</span>
-                </h:outputLink>
-            </li>
-
-            <li class="bar-item" id="li-faq" title="Preguntas Frecuentes">
-                <h:outputLink value="public/faq.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-clipboard-question icon"></i>
-                    <span class="link-text">Preguntas Frecuentes</span>
-                </h:outputLink>
-            </li>
-
-            <li class="bar-item" id="li-comentarios" title="Anuncios">
-                <h:outputLink value="#" styleClass="bar-link">
-                    <i class="fa-solid fa-message icon"></i>
-                    <span class="link-text">Anuncios</span>
-                </h:outputLink>
-            </li>
-
-            <li class="bar-item" id="li-about" title="Acerca de Nosotros">
-                <h:outputLink value="#" styleClass="bar-link">
-                    <i class="fa-solid fa-circle-info icon"></i>
-                    <span class="link-text">Acerca de Nosotros</span>
-                </h:outputLink>
-            </li>
 
             <li class="bar-item">
-                <h:outputLink value="#" styleClass="bar-link">
+                <h:outputLink value="/public/viewLogin.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-user icon"></i>
                     <span class="link-text">Cerrar Sesión</span>
                 </h:outputLink>

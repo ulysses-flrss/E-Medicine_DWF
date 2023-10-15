@@ -21,9 +21,9 @@ body{
 .form-container{
     /* padding: 1em 2em 0.25em 2em; */
     border-radius: 15px;
-    width: 90%;
+    width: 80%;
     height: fit-content;
-    margin: auto auto 2em 4em;
+    margin: auto;
     background-color: var(--aquaBright-body-color);
     font-family: var(--menuFont);
 
@@ -67,9 +67,9 @@ body{
 textarea {
     font-family: var(--bodyFont);
     padding: 1em;
+    margin: auto;
     display: flex;
-    text-align: justify;
-    font-size: 1.5em;
+    font-size: 1.15em;
     border-radius: 15px;
     outline: none;
     border: 1.5px solid black;

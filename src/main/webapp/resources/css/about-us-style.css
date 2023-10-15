@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #e0e6e3;
+}
+
+.all-container {
+  padding-top: 1em !important;
+}
+
+.info-about {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+    justify-items: center;
+    margin: auto auto auto auto;
+    width: 75%;
+    cursor: default;
+}
+
+.info-about p {
+  font-size: 1em;
+}
+
+.info-about div {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 2em;
+    background-color: var(--skinBright-body-color);
+    margin: 2em auto ;
+    transition: 500ms all;
+}
+
+.info-about div:hover {
+    transition: 500ms all;
+    box-shadow: 5px 5px 0 black;
+    transform: scale(1.02);
+
+}
+
+
+.info-about div:hover .title {
+    transition: 500ms all;
+    font-size: 1.25em;
+}
+
+.info-about div:hover p {
+    transition: 500ms all;
+    font-size: 1.3em;
+}
+
+
+
+
+.title {
+    padding-bottom: 0.5rem;
+    font-family: var(--menuFont);
+    font-size: 2em;
+    border-bottom: 2px solid black;
+    transition: 500ms all;
+}
+
+
+.content {
+    text-align: justify;
+    margin:2rem 0 0 0;
+    transition: 500ms all;
+    font-family: var(--bodyFont);
+    font-size: 1.25em;
+}
+
+.all-container {
+    padding-top: 10rem;
+}
+
+#creadores {
+    font-family: var(--footerFont);
+    font-size: 5em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#creadores:hover {
+    transition: 500ms all;
+    transform: scale(1.10);
+}
+
+
+.cards {
+    grid-column: 2 / span 12;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 90px));
+    grid-gap: 20px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    
+    
+  }
+  
+  .card {
+    grid-column-end: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: #39393b;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .card:hover {
+    transform: translateY(-7px);
+  }
+  
+  .card__image-container {
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .card__image-container img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .card__content {
+    padding: 20px;
+    font-family: var(--bodyFont);
+  }
+  
+  .card__title {
+    margin-bottom: 20px;
+    font-family: var(--extraFont);
+    text-align: center;
+  }
+  
+  .card__info {
+    display: flex;
+    align-self: end;
+    align-items: center;
+  }
+  
+  .card__price {
+    margin-left: auto;
+    padding: 5px 1px;
+    background-color: #303032;
+    border-radius: 20px;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .card {
+      grid-column-end: span 6;
+    }
+  }
+  
+  @media only screen and (max-width: 700px) {
+    main {
+      grid-gap: 20px;
+    }
+    .card {
+      grid-column-end: span 12;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    main {
+      grid-template-columns: 10px repeat(6, 1fr) 10px;
+      grid-gap: 10px;
+    }
+    .cards {
+      grid-column: 2 / span 6;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 20px;
+    }
+    .card {
+      grid-column-end: span 6;
+    }
+  }
+  
+
+h1 {
+    font-size: 1.5em;
+    font-family: var(--bodyFont);
+    margin: 0.5rem;
+}
+
+#social-network-logo {
+    transition: 1s ease-in-out;
+    color: var(--aquaBright-body-color);
+}
+
+#social-network-logo:hover {
+    transition: 1s ease-out;
+    transform: rotate(25deg);
+}
+
+#social-network-logo:active {
+    transition: 150ms all;
+    transform: scale(1.25);
+}
+
+.social-network-about {
+    font-size: 1.5em;
+    font-family: var(--footerFont);
+    font-weight: bold;
+}
+
+.social-networks {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.social-networks * {
+    display: flex;
+    text-decoration: none;
+    font-size: 1.35em;
+    padding: 0.35rem;
+    align-items: center;
+}
+
+.social-networks #social-network-logo {
+    border-radius: 5px;
+}
+
+.social-networks #social-network-logo:hover{
+    transition: 250ms ease-in;
+    color: white;
+    background-color: var(--aquaBright-body-color);
+}

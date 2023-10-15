@@ -5,6 +5,10 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="../layouts/layout-publico.xhtml">
+   <ui:define name="head">
+      <h:outputStylesheet library="css" name="anuncio.css"/>
+      <h:outputStylesheet library="css" name="anuncios-style.css"/>
+   </ui:define>
    <ui:define name="contenido">
       <h2>Anuncios Publicados</h2>
       <h:form>

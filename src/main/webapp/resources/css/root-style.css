@@ -29,6 +29,8 @@
 }
 
 body {
+    padding: 0;
+    margin: 0;
     background-color: var(--background-color) !important;
     display: grid;
     min-height: 100vh !important;
@@ -48,6 +50,8 @@ body {
 }
 
 .disenoBoton {
+    text-decoration: none;
+    color: #000;
     margin: auto;
     font-size: 1.35em;
     border-radius: 50px !important;
