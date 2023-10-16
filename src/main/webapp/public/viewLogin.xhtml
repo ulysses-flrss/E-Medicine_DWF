@@ -34,13 +34,15 @@
                                     <h:outputLabel for="password" value="Contraseña:" />
                                     <h:inputSecret id="password" name="password" placeholder="Ingrese su contraseña" />
                                 </h:panelGroup>
-                                <h:panelGroup>
+                                <h:panelGroup styleClass="submit">
                                     <h:panelGroup layout="block" styleClass="no-account">
-                                        <h:commandLink action="#{bean.viewRegister}" styleClass="submit-text">No tengo Cuenta</h:commandLink>
+<!--                                        <h:commandLink action="#{bean.viewRegister}" styleClass="submit-text">No tengo Cuenta</h:commandLink>-->
+                                        <a href="viewRegistro.xhtml" class="submit-text">No tengo cuenta</a>
                                     </h:panelGroup>
 
                                     <h:panelGroup layout="block" styleClass="no-account">
-                                        <h:commandLink action="#{bean.login}"  styleClass="submit-text">Iniciar Sesión</h:commandLink>
+<!--                                        <h:commandLink action="#{bean.login}"  styleClass="submit-text">Iniciar Sesión</h:commandLink>-->
+                                        <a href="paciente/index.xhtml" class="submit-text">Iniciar Sesión</a>
                                     </h:panelGroup>
                                 </h:panelGroup>
                             </h:panelGroup>

@@ -10,10 +10,10 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
-    <ui:include src="head.xhtml" />
-    <h:outputStylesheet name="css/familiares-style.css" />
-    <h:outputStylesheet name="css/footer-style.css" />
+    <ui:include src="head.xhtml"/>
 </h:head>
+
+
 
 <h:body>
     <nav class="barNav">
@@ -26,35 +26,35 @@
             </li>
 
             <li class="bar-item" id="li-cita" title="Programar Cita">
-                <h:outputLink value="private/paciente/programarCita.xhtml" styleClass="bar-link">
+                <h:outputLink value="programarCita.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-book-medical icon"></i>
                     <span class="link-text">Programar Cita Médica</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-citasP" title="Familiares">
-                <h:outputLink value="private/paciente/citasProgramadas.xhtml" styleClass="bar-link">
+                <h:outputLink value="citasProgramadas.xhtml" styleClass="bar-link">
                     <i class="fa-regular fa-calendar-check icon"></i>
                     <span class="link-text">Citas Programadas</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-familiares" title="Familiares">
-                <h:outputLink value="private/paciente/familiares.xhtml" styleClass="bar-link">
+                <h:outputLink value="familiares.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-person-breastfeeding icon"></i>
                     <span class="link-text">Perfiles Familiares</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-doctor" title="Especialidades Médicas">
-                <h:outputLink value="public/especialides.xhtml" styleClass="bar-link">
+                <h:outputLink value="especialides.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-user-doctor icon"></i>
                     <span class="link-text">Especialidades Medicas</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-faq" title="Preguntas Frecuentes">
-                <h:outputLink value="public/faq.xhtml" styleClass="bar-link">
+                <h:outputLink value="faq.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-clipboard-question icon"></i>
                     <span class="link-text">Preguntas Frecuentes</span>
                 </h:outputLink>
@@ -75,7 +75,7 @@
             </li>
 
             <li class="bar-item">
-                <h:outputLink value="#" styleClass="bar-link">
+                <h:outputLink value="/public/viewLogin.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-user icon"></i>
                     <span class="link-text">Cerrar Sesión</span>
                 </h:outputLink>

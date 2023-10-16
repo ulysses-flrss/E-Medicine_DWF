@@ -14,7 +14,6 @@
         <h:outputStylesheet library="css" name="register-style.css"/>
     </ui:define>
     <ui:define name="contenido">
-            <h:form>
                 <h:panelGroup layout="block" styleClass="inicio-register">
                     <h:graphicImage library="imgs" name="logoEMedicine.png" alt="" styleClass="logo-register" id="logo" />
                     <h1 class="bienvenida-register">Bienvenido a E-Medicine</h1>
@@ -78,14 +77,14 @@
                                 <h:inputText type="email" id="email" name="email" placeholder="Ingrese su Correo" value="" />
                             </h:panelGroup>
 
-                            <h:panelGroup layout="block" styleClass="div-section password-section">
+                            <h:panelGroup layout="block" styleClass="div-section">
                                 <h:outputLabel id="pass1" for="password" value="Contraseña: *" />
                                 <h:inputSecret id="password" name="pass" placeholder="Ingrese su Contraseña" value="" />
-                                <h:commandLink action="#{bean.mostrarContrasena}" styleClass="fa-solid fa-eye-slash icon" id="eye1" title="Mostrar Contraseña" />
+<!--                                <h:commandLink action="#{bean.mostrarContrasena}" styleClass="fa-solid fa-eye-slash icon" id="eye1" title="Mostrar Contraseña" />-->
 
                                 <h:outputLabel id="pass2" for="password2" value="Confirmar Contraseña: *" />
                                 <h:inputSecret id="password2" name="pass" placeholder="Repita su Contraseña" value="" />
-                                <h:commandLink action="#{bean.mostrarContrasena}" styleClass="fa-solid fa-eye-slash icon" id="eye2" title="Mostrar Contraseña" />
+<!--                                <h:commandLink action="#{bean.mostrarContrasena}" styleClass="fa-solid fa-eye-slash icon" id="eye2" title="Mostrar Contraseña" />-->
                             </h:panelGroup>
 
                             <h:panelGroup layout="block" styleClass="div-section last-section">
@@ -99,12 +98,17 @@
                             <h:inputHidden name="ubi" id="ubi" value="#{ubicacion}" />
 
                             <h:panelGroup layout="block" styleClass="submit">
-                                <h:commandLink action="#{bean.viewIndex}" styleClass="account">Ya tengo Cuenta</h:commandLink>
-                                <h:commandButton type="submit" action="#{bean.registrarUser}" value="Registrarse" styleClass="disenoBoton" name="accion" onclick="registrarUser();" />
+                                <h:panelGroup styleClass="no-account">
+<!--                                    <h:commandLink action="#{bean.viewIndex}" styleClass="account">Ya tengo Cuenta</h:commandLink>-->
+                                    <a href="viewLogin.xhtml" class="account">Ya tengo cuenta</a>
+                                </h:panelGroup>
+                                <h:panelGroup styleClass="no-account">
+<!--                                    <h:commandButton type="submit" action="#{bean.registrarUser}" value="Registrarse" styleClass="disenoBoton" name="accion" onclick="registrarUser();" />-->
+                                    <a href="viewLogin.xhtml" class="account">Registrarse</a>
+                                </h:panelGroup>
                             </h:panelGroup>
                         </h:form>
                     </h:panelGroup>
                 </h:panelGroup>
-            </h:form>
     </ui:define>
 </ui:composition>
