@@ -10,6 +10,13 @@
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                  xmlns:f="http://xmlns.jcp.org/jsf/core"
                  template="../../layouts/layout-admin.xhtml">
+    <ui:define name="head">
+        <h:outputStylesheet library="css" name="index-style.css"/>
+        <h:outputStylesheet library="css" name="anuncios-style.css"/>
+        <h:outputStylesheet library="css" name="anunciosPaciente-style.css"/>
+        <h:outputStylesheet library="css" name="anuncio.css"/>
+
+    </ui:define>
     <ui:define name="contenido">
         <h:form>
             <h:panelGroup layout="block" styleClass="allContainer">
