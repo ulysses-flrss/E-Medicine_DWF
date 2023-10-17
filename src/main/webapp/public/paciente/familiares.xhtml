@@ -5,6 +5,9 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="../../layouts/layout-paciente.xhtml">
+    <ui:define name="head">
+        <h:outputStylesheet library="css" name="familiares-style.css"/>
+    </ui:define>
     <ui:define name="contenido">
         <main class="all-container">
             <article>
@@ -17,9 +20,9 @@
                         <div class="familiares-functions">
                             <h:form>
                                 <a href="#">
-                                    <h:commandButton value="Editar" styleClass="btn btn-primary" />
+                                    <h:commandButton value="Editar" styleClass="disenoBoton" />
                                 </a>
-                                <h:commandButton value="Eliminar" styleClass="btn btn-danger" action="#" />
+                                <h:commandButton value="Eliminar" styleClass="disenoBoton" action="#" />
                             </h:form>
                         </div>
                     </div>

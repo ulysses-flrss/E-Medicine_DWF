@@ -10,6 +10,11 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
                 template="/layouts/layout-publico.xhtml">
+    <ui:define name="head">
+        <h:outputStylesheet name="css/anuncios-style.css" />
+        <h:outputStylesheet name="css/invitado.css" />
+        <h:outputStylesheet name="css/index-style.css" />
+    </ui:define>
     <ui:define name="contenido">
         <h:body>
             <h:form>
@@ -19,7 +24,7 @@
                             <div class="img-layout">
                                 <h:graphicImage library="imgs" name="imagenPrueba.png" alt="Imagen de Perfil" styleClass="profile-picture" title="Imagen de Perfil" />
                             </div>
-                            <span class="editar" title="Editar Perfil"></span>
+                            <span class="editar" title="Editar Perfil">Bienvenido/a Invitado/a</span>
                         </a>
                         <h:outputText id="bienvenida" title="Bienvenida" value="Bienvenido Invitado" escape="false">
                             <f:verbatim></f:verbatim>
