@@ -5,15 +5,16 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="../../layouts/layout-formularios.xhtml">
+   <ui:define name="head">
+      <h:outputStylesheet library="css" name="form-familiares-style.css"/>
+   </ui:define>
    <ui:define name="contenido">
-      <main>
          <div class="inicio-registro">
             <h:graphicImage library="imgs" name="logoEMedicine.png" alt="Logo de E-Medicine" class="logo" />
             <h1 class="bienvenida-registro">Crea Un Perfil Familiar</h1>
          </div>
-         <article>
-            <section class="form-container">
-               <h:form>
+
+               <h:form styleClass="form-container">
                   <h:inputHidden id="idUsuario" value="#{familiarBean.idUsuario}" />
                   <h:inputHidden id="idPerfil" value="#{familiarBean.idPerfil}" />
                   <div class="third-line">
@@ -68,8 +69,7 @@
                   </div>
                   <h:commandButton value="Crear Perfil" styleClass="disenoBoton" action="#{familiarBean.crearPerfil}" />
                </h:form>
-            </section>
-         </article>
-      </main>
+
+
    </ui:define>
 </ui:composition>
