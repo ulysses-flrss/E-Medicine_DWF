@@ -1,0 +1,89 @@
+package com.dwf.models;
+
+import com.dwf.entities.UsuariosEntity;
+import com.dwf.util.JpaUtil;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+
+import javax.swing.text.html.parser.Entity;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UsuariosModel {
+    public List<UsuariosEntity> listarUsuarios() {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            Query consulta = em.createNamedQuery("UsuariosEntity.findAll");
+            List<UsuariosEntity> lista = consulta.getResultList();
+            em.close();
+            return lista;
+        } catch(Exception ex){
+            em.close();
+            System.out.println("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
+    public UsuariosEntity obtenerUsuario (String cod) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            UsuariosEntity usuario = em.find(UsuariosEntity.class, cod);
+            em.close();
+            return usuario;
+        } catch (Exception ex) {
+            em.close();
+            System.out.println("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
+    public int guardarUsuario (UsuariosEntity usuario) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(usuario);
+            em.getTransaction().commit();
+            em.close();
+            return 1;
+        } catch (Exception ex) {
+            em.close();
+            System.out.println("Error: " + ex.getMessage());
+            return 0;
+        }
+    }
+
+    public int modificarUsuario (UsuariosEntity usuario) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(usuario);
+            em.getTransaction().commit();
+            em.close();
+            return 1;
+        } catch (Exception ex) {
+            em.close();
+            System.out.println("Error: " + ex.getMessage());
+            return 0;
+        }
+    }
+
+    public int eliminarUsuario (String cod) {
+        EntityManager em = JpaUtil.getEntityManager();
+        int filasBorradas = 0;
+        try {
+            UsuariosEntity usuario = em.find(UsuariosEntity.class, cod);
+            if (usuario != null) {
+                em.getTransaction().begin();
+                em.remove(usuario);
+                em.getTransaction().commit();
+                filasBorradas = 1;
+            }
+            em.close();
+            return filasBorradas;
+        } catch (Exception ex) {
+            em.close();
+            System.out.println("Error: " + ex.getMessage());
+            return 0;
+        }
+    }
+}
