@@ -2,18 +2,13 @@ package com.dwf.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
-
 @Entity
-@Table(name = "anuncios", schema = "e-medicine2", catalog = "")
+@Table(name = "anuncios", schema = "e_medicine_dwf", catalog = "")
 public class AnunciosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
     private int id;
-    @Basic
-    @Column(name = "codUsuario", nullable = false, length = 10)
-    private String codUsuario;
     @Basic
     @Column(name = "titulo", nullable = false, length = 100)
     private String titulo;
@@ -22,7 +17,7 @@ public class AnunciosEntity {
     private String contenido;
     @Basic
     @Column(name = "fechaPublicacion", nullable = false)
-    private Timestamp fechaPublicacion;
+    private String fechaPublicacion;
     @ManyToOne
     @JoinColumn(name = "codUsuario", referencedColumnName = "codigo", nullable = false)
     private UsuariosEntity usuariosByCodUsuario;
@@ -33,14 +28,6 @@ public class AnunciosEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCodUsuario() {
-        return codUsuario;
-    }
-
-    public void setCodUsuario(String codUsuario) {
-        this.codUsuario = codUsuario;
     }
 
     public String getTitulo() {
@@ -59,11 +46,11 @@ public class AnunciosEntity {
         this.contenido = contenido;
     }
 
-    public Timestamp getFechaPublicacion() {
+    public String getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(Timestamp fechaPublicacion) {
+    public void setFechaPublicacion(String fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
@@ -75,7 +62,6 @@ public class AnunciosEntity {
         AnunciosEntity that = (AnunciosEntity) o;
 
         if (id != that.id) return false;
-        if (codUsuario != null ? !codUsuario.equals(that.codUsuario) : that.codUsuario != null) return false;
         if (titulo != null ? !titulo.equals(that.titulo) : that.titulo != null) return false;
         if (contenido != null ? !contenido.equals(that.contenido) : that.contenido != null) return false;
         if (fechaPublicacion != null ? !fechaPublicacion.equals(that.fechaPublicacion) : that.fechaPublicacion != null)
@@ -87,7 +73,6 @@ public class AnunciosEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (codUsuario != null ? codUsuario.hashCode() : 0);
         result = 31 * result + (titulo != null ? titulo.hashCode() : 0);
         result = 31 * result + (contenido != null ? contenido.hashCode() : 0);
         result = 31 * result + (fechaPublicacion != null ? fechaPublicacion.hashCode() : 0);

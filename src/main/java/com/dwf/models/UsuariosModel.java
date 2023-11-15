@@ -5,8 +5,6 @@ import com.dwf.util.JpaUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
-import javax.swing.text.html.parser.Entity;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UsuariosModel {

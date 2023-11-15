@@ -2,15 +2,12 @@ package com.dwf.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
-@Table(name = "familiares", schema = "e-medicine2", catalog = "")
+@Table(name = "familiares", schema = "e_medicine_dwf", catalog = "")
 public class FamiliaresEntity {
-    @Basic
-    @Column(name = "codUsuario", nullable = false, length = 10)
-    private String codUsuario;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "codFamiliar", nullable = false, length = 15)
@@ -38,14 +35,6 @@ public class FamiliaresEntity {
     @ManyToOne
     @JoinColumn(name = "codUsuario", referencedColumnName = "codigo", nullable = false)
     private UsuariosEntity usuariosByCodUsuario;
-
-    public String getCodUsuario() {
-        return codUsuario;
-    }
-
-    public void setCodUsuario(String codUsuario) {
-        this.codUsuario = codUsuario;
-    }
 
     public String getCodFamiliar() {
         return codFamiliar;
@@ -110,9 +99,8 @@ public class FamiliaresEntity {
 
         FamiliaresEntity that = (FamiliaresEntity) o;
 
-        if (Double.compare(peso, that.peso) != 0) return false;
-        if (Double.compare(altura, that.altura) != 0) return false;
-        if (codUsuario != null ? !codUsuario.equals(that.codUsuario) : that.codUsuario != null) return false;
+        if (Double.compare(that.peso, peso) != 0) return false;
+        if (Double.compare(that.altura, altura) != 0) return false;
         if (codFamiliar != null ? !codFamiliar.equals(that.codFamiliar) : that.codFamiliar != null) return false;
         if (nombres != null ? !nombres.equals(that.nombres) : that.nombres != null) return false;
         if (apellidos != null ? !apellidos.equals(that.apellidos) : that.apellidos != null) return false;
@@ -127,8 +115,7 @@ public class FamiliaresEntity {
     public int hashCode() {
         int result;
         long temp;
-        result = codUsuario != null ? codUsuario.hashCode() : 0;
-        result = 31 * result + (codFamiliar != null ? codFamiliar.hashCode() : 0);
+        result = codFamiliar != null ? codFamiliar.hashCode() : 0;
         result = 31 * result + (nombres != null ? nombres.hashCode() : 0);
         result = 31 * result + (apellidos != null ? apellidos.hashCode() : 0);
         temp = Double.doubleToLongBits(peso);

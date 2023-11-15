@@ -2,40 +2,27 @@ package com.dwf.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 
 @Entity
-@Table(name = "citas", schema = "e-medicine2", catalog = "")
+@Table(name = "citas", schema = "e_medicine_dwf", catalog = "")
 public class CitasEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "idCita", nullable = false)
     private int idCita;
     @Basic
-    @Column(name = "codPaciente", nullable = false, length = 10)
-    private String codPaciente;
-    @Basic
-    @Column(name = "codDoctor", nullable = true, length = 10)
-    private String codDoctor;
-    @Basic
-    @Column(name = "codEspecialidad", nullable = false)
-    private int codEspecialidad;
-    @Basic
     @Column(name = "fechaCita", nullable = false)
     private Date fechaCita;
     @Basic
     @Column(name = "horaCita", nullable = false)
-    private Time horaCita;
+    private String horaCita;
     @Basic
     @Column(name = "sintomas", nullable = true, length = -1)
     private String sintomas;
     @Basic
     @Column(name = "razonCita", nullable = false, length = -1)
     private String razonCita;
-    @Basic
-    @Column(name = "codFamiliar", nullable = true, length = 15)
-    private String codFamiliar;
     @Basic
     @Column(name = "estado", nullable = false, length = 30)
     private String estado;
@@ -63,30 +50,6 @@ public class CitasEntity {
         this.idCita = idCita;
     }
 
-    public String getCodPaciente() {
-        return codPaciente;
-    }
-
-    public void setCodPaciente(String codPaciente) {
-        this.codPaciente = codPaciente;
-    }
-
-    public String getCodDoctor() {
-        return codDoctor;
-    }
-
-    public void setCodDoctor(String codDoctor) {
-        this.codDoctor = codDoctor;
-    }
-
-    public int getCodEspecialidad() {
-        return codEspecialidad;
-    }
-
-    public void setCodEspecialidad(int codEspecialidad) {
-        this.codEspecialidad = codEspecialidad;
-    }
-
     public Date getFechaCita() {
         return fechaCita;
     }
@@ -95,11 +58,11 @@ public class CitasEntity {
         this.fechaCita = fechaCita;
     }
 
-    public Time getHoraCita() {
+    public String getHoraCita() {
         return horaCita;
     }
 
-    public void setHoraCita(Time horaCita) {
+    public void setHoraCita(String horaCita) {
         this.horaCita = horaCita;
     }
 
@@ -117,14 +80,6 @@ public class CitasEntity {
 
     public void setRazonCita(String razonCita) {
         this.razonCita = razonCita;
-    }
-
-    public String getCodFamiliar() {
-        return codFamiliar;
-    }
-
-    public void setCodFamiliar(String codFamiliar) {
-        this.codFamiliar = codFamiliar;
     }
 
     public String getEstado() {
@@ -151,14 +106,10 @@ public class CitasEntity {
         CitasEntity that = (CitasEntity) o;
 
         if (idCita != that.idCita) return false;
-        if (codEspecialidad != that.codEspecialidad) return false;
-        if (codPaciente != null ? !codPaciente.equals(that.codPaciente) : that.codPaciente != null) return false;
-        if (codDoctor != null ? !codDoctor.equals(that.codDoctor) : that.codDoctor != null) return false;
         if (fechaCita != null ? !fechaCita.equals(that.fechaCita) : that.fechaCita != null) return false;
         if (horaCita != null ? !horaCita.equals(that.horaCita) : that.horaCita != null) return false;
         if (sintomas != null ? !sintomas.equals(that.sintomas) : that.sintomas != null) return false;
         if (razonCita != null ? !razonCita.equals(that.razonCita) : that.razonCita != null) return false;
-        if (codFamiliar != null ? !codFamiliar.equals(that.codFamiliar) : that.codFamiliar != null) return false;
         if (estado != null ? !estado.equals(that.estado) : that.estado != null) return false;
         if (justificante != null ? !justificante.equals(that.justificante) : that.justificante != null) return false;
 
@@ -168,14 +119,10 @@ public class CitasEntity {
     @Override
     public int hashCode() {
         int result = idCita;
-        result = 31 * result + (codPaciente != null ? codPaciente.hashCode() : 0);
-        result = 31 * result + (codDoctor != null ? codDoctor.hashCode() : 0);
-        result = 31 * result + codEspecialidad;
         result = 31 * result + (fechaCita != null ? fechaCita.hashCode() : 0);
         result = 31 * result + (horaCita != null ? horaCita.hashCode() : 0);
         result = 31 * result + (sintomas != null ? sintomas.hashCode() : 0);
         result = 31 * result + (razonCita != null ? razonCita.hashCode() : 0);
-        result = 31 * result + (codFamiliar != null ? codFamiliar.hashCode() : 0);
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
         result = 31 * result + (justificante != null ? justificante.hashCode() : 0);
         return result;

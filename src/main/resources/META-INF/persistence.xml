@@ -12,16 +12,16 @@
         <class>com.dwf.entities.RolesEntity</class>
         <class>com.dwf.entities.UsuariosEntity</class>
         <properties>
-            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/e-medicine2?useSSL=false"/>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/e_medicine_dwf?useSSL=false"/>
             <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="toplink.jdbc.user" value="root"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/e-medicine2?useSSL=false"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/e_medicine_dwf?useSSL=false"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/e-medicine2?useSSL=false"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/e_medicine_dwf?useSSL=false"/>
             <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver"/>
             <property name="openjpa.ConnectionUserName" value="root"/>
-            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/e-medicine2?useSSL=false"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/e_medicine_dwf?useSSL=false"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="eclipselink.jdbc.user" value="root"/>
         </properties>

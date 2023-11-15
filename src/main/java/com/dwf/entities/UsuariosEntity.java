@@ -2,13 +2,12 @@ package com.dwf.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
-@Table(name = "usuarios", schema = "e-medicine2", catalog = "")
+@Table(name = "usuarios", schema = "e_medicine_dwf", catalog = "")
 public class UsuariosEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "codigo", nullable = false, length = 10)
     private String codigo;
@@ -25,7 +24,7 @@ public class UsuariosEntity {
     @Column(name = "correo", nullable = false, length = 50)
     private String correo;
     @Basic
-    @Column(name = "pass", nullable = false, length = 20)
+    @Column(name = "pass", nullable = true, length = 20)
     private String pass;
     @Basic
     @Column(name = "telefono", nullable = false, length = 10)
@@ -45,12 +44,6 @@ public class UsuariosEntity {
     @Basic
     @Column(name = "municipio", nullable = true, length = 50)
     private String municipio;
-    @Basic
-    @Column(name = "codEspecialidad", nullable = true)
-    private Integer codEspecialidad;
-    @Basic
-    @Column(name = "codRol", nullable = true)
-    private Integer codRol;
     @OneToMany(mappedBy = "usuariosByCodUsuario")
     private Collection<AnunciosEntity> anunciosByCodigo;
     @OneToMany(mappedBy = "usuariosByCodPaciente")
@@ -162,22 +155,6 @@ public class UsuariosEntity {
         this.municipio = municipio;
     }
 
-    public Integer getCodEspecialidad() {
-        return codEspecialidad;
-    }
-
-    public void setCodEspecialidad(Integer codEspecialidad) {
-        this.codEspecialidad = codEspecialidad;
-    }
-
-    public Integer getCodRol() {
-        return codRol;
-    }
-
-    public void setCodRol(Integer codRol) {
-        this.codRol = codRol;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -198,9 +175,6 @@ public class UsuariosEntity {
         if (altura != null ? !altura.equals(that.altura) : that.altura != null) return false;
         if (genero != null ? !genero.equals(that.genero) : that.genero != null) return false;
         if (municipio != null ? !municipio.equals(that.municipio) : that.municipio != null) return false;
-        if (codEspecialidad != null ? !codEspecialidad.equals(that.codEspecialidad) : that.codEspecialidad != null)
-            return false;
-        if (codRol != null ? !codRol.equals(that.codRol) : that.codRol != null) return false;
 
         return true;
     }
@@ -219,8 +193,6 @@ public class UsuariosEntity {
         result = 31 * result + (altura != null ? altura.hashCode() : 0);
         result = 31 * result + (genero != null ? genero.hashCode() : 0);
         result = 31 * result + (municipio != null ? municipio.hashCode() : 0);
-        result = 31 * result + (codEspecialidad != null ? codEspecialidad.hashCode() : 0);
-        result = 31 * result + (codRol != null ? codRol.hashCode() : 0);
         return result;
     }
 

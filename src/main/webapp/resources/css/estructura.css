@@ -1,0 +1,37 @@
+.cont-main {
+    display: grid;
+    grid-template-columns: 7rem 90%;
+}
+
+.cont-form {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    justify-content: center;
+    row-gap: 1.5rem;
+}
+
+.cont-dinamico {
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: 20rem 20rem;
+    column-gap: 4rem;
+    justify-content: center;
+}
+
+.elementos-form {
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    row-gap: .5rem;
+}
+
+.selects {
+    font-size: 1.05em;
+    padding: 0.5em;
+    border-radius: 15px;
+    border: 1.5px solid black;
+    outline: none;
+    text-align: center;
+    font-family: var(--bodyFont);
+    background-color: #eafff4;
+    box-shadow: 3px 3px 0;
+}
