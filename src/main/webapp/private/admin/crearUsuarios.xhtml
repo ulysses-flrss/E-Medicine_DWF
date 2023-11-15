@@ -19,6 +19,7 @@
             <h:form id="registrar">
                 <h1 id="titulo">Agregar Usuarios</h1>
                 <div class="cont-form">
+                    <h:inputHidden id="codigo" value="#{usuariosBean.usuario.codigo}"/>
                     <div class="cont-dinamico">
                         <div id="cont-codUser" class="elementos-form">
                             <h:outputLabel for="registrar:codigoV" value="Código del Usuario:"/>
@@ -28,19 +29,19 @@
                             <h:outputLabel for="registrar:rol" value="Rol del Usuario:"/>
                             <h:selectOneMenu id="rol" value="#{usuariosBean.codRol}" styleClass="selects">
                                 <f:selectItem itemValue="0" itemLabel="-- Seleccione un Rol --"/>
-                                <f:selectItems value="#{rolesBean.model.listarRoles()}"/>
+                                <f:selectItems value="#{rolesBean.listRoles}" var="roles" itemValue="#{roles.codigo}" itemLabel="#{roles.nombre}"/>
                                 <f:ajax event="change" render="registrar:codigoV registrar:codigo" execute="registrar:rol" listener="#{usuariosBean.crearCodigo}"/>
                             </h:selectOneMenu>
                         </div>
                     </div>
                     <div class="campos">
                         <h:outputLabel for="registrar:nombre" value="Nombres: "/>
-                        <h:inputText id="nombre" value="#{usuariosBean.usuario.nombre}" placeholder="Ingrese su Nombre" required="true"/>
+                        <h:inputText id="nombre" value="#{usuariosBean.usuario.nombres}" placeholder="Ingrese su Nombre" required="true"/>
                     </div>
 
                     <div class="campos">
                         <h:outputLabel for="registrar:apellido" value="Apellidos:"/>
-                        <h:inputText id="apellido" value="#{usuariosBean.usuario.apellido}" placeholder="Ingrese su Apellido" required="true"/>
+                        <h:inputText id="apellido" value="#{usuariosBean.usuario.apellidos}" placeholder="Ingrese su Apellido" required="true"/>
                     </div>
 
                     <div class="campos">
@@ -89,7 +90,7 @@
 
                     <div class="campos">
                         <label for="email">Correo Electrónico:</label>
-                        <h:inputText id="email" value="#{usuariosBean.usuario.email}" placeholder="Ingrese su Correo" required="true"/>
+                        <h:inputText id="email" value="#{usuariosBean.usuario.correo}" placeholder="Ingrese su Correo" required="true"/>
                     </div>
 
                     <div class="campos">
@@ -100,7 +101,7 @@
 
                     <div class="campos">
                         <h:outputLabel for="password2" value="Repita su contraseña: "/>
-                        <h:inputSecret id="password2" value="#{usuarioBean.usuario.pass}" placeholder="Repita su Contraseña" required="true"/>
+                        <h:inputSecret id="password2" value="#{usuariosBean.usuario.pass}" placeholder="Repita su Contraseña" required="true"/>
                         <i class="fa-solid fa-eye-slash icon" id="eye2" title="Mostrar Contraseña"></i>
                     </div>
 

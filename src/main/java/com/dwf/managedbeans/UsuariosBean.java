@@ -21,6 +21,8 @@ public class UsuariosBean {
     private List<UsuariosEntity> listUsers;
 
     public UsuariosBean() {
+        usuario = new UsuariosEntity();
+        model = new UsuariosModel();
     }
 
     public void crearCodigo(AjaxBehaviorEvent e) {
@@ -52,7 +54,7 @@ public class UsuariosBean {
                 int digitos = 1000 + random.nextInt(9000);
                 codigo = tipo + "-" + formato.format(new Date()) + digitos;
 
-                if (model.obtenerUsuario(codigo) != null) {
+                if (!model.existeUsuario(codigo)) {
                     salir = true;
                 }
             }else {

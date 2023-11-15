@@ -3,6 +3,7 @@ package com.dwf.models;
 import com.dwf.entities.UsuariosEntity;
 import com.dwf.util.JpaUtil;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.Query;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class UsuariosModel {
     public List<UsuariosEntity> listarUsuarios() {
         EntityManager em = JpaUtil.getEntityManager();
         try {
-            Query consulta = em.createNamedQuery("UsuariosEntity.findAll");
+            Query consulta = em.createQuery("SELECT u FROM UsuariosEntity u");
             List<UsuariosEntity> lista = consulta.getResultList();
             em.close();
             return lista;
@@ -28,11 +29,21 @@ public class UsuariosModel {
             UsuariosEntity usuario = em.find(UsuariosEntity.class, cod);
             em.close();
             return usuario;
-        } catch (Exception ex) {
+        } catch (PersistenceException ex) {
             em.close();
             System.out.println("Error: " + ex.getMessage());
             return null;
         }
+    }
+
+    public boolean existeUsuario (String cod) {
+        List<UsuariosEntity> usuarios = listarUsuarios();
+        for (UsuariosEntity usuario : usuarios) {
+            if (usuario.getCodigo().equals(cod)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int guardarUsuario (UsuariosEntity usuario) {
