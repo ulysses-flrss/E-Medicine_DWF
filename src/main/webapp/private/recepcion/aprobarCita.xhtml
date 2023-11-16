@@ -1,112 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
-                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                 template="/layouts/layout-recepcionista.xhtml">
-
-    <ui:define name="head">
+    <h:head>
         <h:outputStylesheet library="css" name="cita-style.css" />
-    </ui:define>
+        <ui:include src="../../layouts/head.xhtml"/>
+    </h:head>
 
-    <ui:define name="contenido">
-            <h:panelGroup styleClass="all-container">
-                            <h:form styleClass="form-container">
-                                <h:inputHidden id="idUsuario" value="" />
-                                <h:inputHidden id="nameUsuario" value="" />
+    <h:body>
+        <h:panelGroup styleClass="all-container">
+            <h:form styleClass="form-container">
+                <h:inputHidden id="idUsuario" value="" />
+                <h:inputHidden id="nameUsuario" value="" />
 
-                                <div class="perfil">
-                                    <h:outputLabel for="idPerfil">Perfil:</h:outputLabel>
-                                    <h:selectOneMenu id="idPerfil" value="" styleClass="selectDinamic" disabled="true">
-                                        <f:selectItem itemValue="perfil1" itemLabel="Perfil 1"/>
+                <div class="perfil">
+                    <h:outputLabel for="idPerfil">Perfil:</h:outputLabel>
+                    <h:selectOneMenu id="idPerfil" value="" styleClass="selectDinamic" disabled="true">
+                        <f:selectItem itemValue="perfil1" itemLabel="Perfil 1"/>
 <!--                                        <f:selectItem itemValue="" itemLabel="&#45;&#45; Seleccione un Perfil &#45;&#45;" />-->
-                                        <f:selectItem itemValue="perfil2" itemLabel="Perfil 2"/>
-                                        <f:selectItem itemValue="perfil3" itemLabel="Perfil 3"/>
-                                    </h:selectOneMenu>
-                                    <div class="citaFamiliar">
-                                        <h:outputLabel for="citaFamiliar" class="genero">Cita Familiar: </h:outputLabel>
-                                        <h:selectBooleanCheckbox id="citaFamiliar" required="true" />
-                                    </div>
-                                </div>
+                        <f:selectItem itemValue="perfil2" itemLabel="Perfil 2"/>
+                        <f:selectItem itemValue="perfil3" itemLabel="Perfil 3"/>
+                    </h:selectOneMenu>
+                    <div class="citaFamiliar">
+                        <h:outputLabel for="citaFamiliar" class="genero">Cita Familiar: </h:outputLabel>
+                        <h:selectBooleanCheckbox id="citaFamiliar" required="true" />
+                    </div>
+                </div>
 
-                                <div class="peso">
-                                    <h:outputLabel for="pe">Peso(lb): </h:outputLabel>
-                                    <h:inputText id="pe" value="180" placeholder="Peso en Libras" disabled="true"/>
-                                </div>
+                <div class="peso">
+                    <h:outputLabel for="pe">Peso(lb): </h:outputLabel>
+                    <h:inputText id="pe" value="180" placeholder="Peso en Libras" disabled="true"/>
+                </div>
 
-                                <div class="altura">
-                                    <h:outputLabel for="al">Altura(cm): </h:outputLabel>
-                                    <h:inputText id="al" value="178" placeholder="Altura en cm" disabled="true" />
-                                </div>
+                <div class="altura">
+                    <h:outputLabel for="al">Altura(cm): </h:outputLabel>
+                    <h:inputText id="al" value="178" placeholder="Altura en cm" disabled="true" />
+                </div>
 
-                                <div class="fecha">
-                                    <h:outputLabel for="fn">Fecha de Nacimiento:</h:outputLabel>
-                                    <h:inputText id="fn" type="date" value="29/10/2001" disabled="true" />
-                                </div>
+                <div class="fecha">
+                    <h:outputLabel for="fn">Fecha de Nacimiento:</h:outputLabel>
+                    <h:inputText id="fn" type="date" value="29/10/2001" disabled="true" />
+                </div>
 
-                                <div class="especialidad-medica">
-                                    <h:outputLabel for="em">Especialidad Médica:</h:outputLabel>
-                                    <h:selectOneMenu id="em" value="" styleClass="selectDinamic" disabled="true">
-                                        <f:selectItem itemValue="MedicinaGeneral" itemLabel="Medicina General"/>
+                <div class="especialidad-medica">
+                    <h:outputLabel for="em">Especialidad Médica:</h:outputLabel>
+                    <h:selectOneMenu id="em" value="" styleClass="selectDinamic" disabled="true">
+                        <f:selectItem itemValue="MedicinaGeneral" itemLabel="Medicina General"/>
 <!--                                        <f:selectItem itemValue="" itemLabel="&#45;&#45; Seleccione una Especialidad &#45;&#45;" />-->
-                                        <f:selectItem itemValue="Cardiologia" itemLabel="Cardiología"/>
-                                        <f:selectItem itemValue="Neurologia" itemLabel="Neurología"/>
-                                        <f:selectItem itemValue="Pediatria" itemLabel="Pediatría"/>
-                                    </h:selectOneMenu>
-                                </div>
+                        <f:selectItem itemValue="Cardiologia" itemLabel="Cardiología"/>
+                        <f:selectItem itemValue="Neurologia" itemLabel="Neurología"/>
+                        <f:selectItem itemValue="Pediatria" itemLabel="Pediatría"/>
+                    </h:selectOneMenu>
+                </div>
 
-                                <div class="doctor">
-                                    <h:outputLabel for="doctores">Elija el doctor:</h:outputLabel>
-                                    <h:selectOneMenu id="doctores" value="" styleClass="selectDinamic" >
-                                        <f:selectItem itemValue="" itemLabel="-- Seleccione el Doctor --" />
-                                        <f:selectItem itemValue="doctor1" itemLabel="Doctor 1"/>
-                                        <f:selectItem itemValue="doctor2" itemLabel="Doctor 2"/>
-                                        <f:selectItem itemValue="doctor3" itemLabel="Doctor 3"/>
-                                    </h:selectOneMenu>
-                                </div>
+                <div class="doctor">
+                    <h:outputLabel for="doctores">Elija el doctor:</h:outputLabel>
+                    <h:selectOneMenu id="doctores" value="" styleClass="selectDinamic" >
+                        <f:selectItem itemValue="" itemLabel="-- Seleccione el Doctor --" />
+                        <f:selectItem itemValue="doctor1" itemLabel="Doctor 1"/>
+                        <f:selectItem itemValue="doctor2" itemLabel="Doctor 2"/>
+                        <f:selectItem itemValue="doctor3" itemLabel="Doctor 3"/>
+                    </h:selectOneMenu>
+                </div>
 
-                                <div class="fecha">
-                                    <h:outputLabel for="fechaCita">Fecha de Cita:</h:outputLabel>
-                                    <h:inputText id="fechaCita" value="14/12/2023" disabled="true" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
-                                </div>
+                <div class="fecha">
+                    <h:outputLabel for="fechaCita">Fecha de Cita:</h:outputLabel>
+                    <h:inputText id="fechaCita" value="14/12/2023" disabled="true" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
+                </div>
 
-                                <div class="doctor">
-                                    <h:outputLabel for="hc">Hora de Cita</h:outputLabel>
-                                    <h:selectOneMenu id="hc" value="" disabled="true">
-                                        <f:selectItem itemValue="9:00:00" itemLabel="9:00am"/>
+                <div class="doctor">
+                    <h:outputLabel for="hc">Hora de Cita</h:outputLabel>
+                    <h:selectOneMenu id="hc" value="" disabled="true">
+                        <f:selectItem itemValue="9:00:00" itemLabel="9:00am"/>
 <!--                                        <f:selectItem itemValue="" itemLabel="&#45;&#45; Seleccione la Hora de su Cita &#45;&#45;" />-->
-                                        <f:selectItem itemValue="7:00:00" itemLabel="7:00am" />
-                                        <f:selectItem itemValue="8:00:00" itemLabel="8:00am"/>
-                                        <f:selectItem itemValue="10:00:00" itemLabel="10:00am"/>
-                                        <f:selectItem itemValue="11:00:00" itemLabel="11:00am"/>
-                                        <f:selectItem itemValue="12:00:00" itemLabel="12:00pm"/>
-                                        <f:selectItem itemValue="13:00:00" itemLabel="1:00pm"/>
-                                        <f:selectItem itemValue="14:00:00" itemLabel="2:00pm"/>
-                                        <f:selectItem itemValue="14:00:00" itemLabel="2:00pm"/>
-                                        <f:selectItem itemValue="15:00:00" itemLabel="3:00pm"/>
-                                        <f:selectItem itemValue="16:00:00" itemLabel="4:00pm"/>
-                                        <f:selectItem itemValue="17:00:00" itemLabel="5:00pm"/>
+                        <f:selectItem itemValue="7:00:00" itemLabel="7:00am" />
+                        <f:selectItem itemValue="8:00:00" itemLabel="8:00am"/>
+                        <f:selectItem itemValue="10:00:00" itemLabel="10:00am"/>
+                        <f:selectItem itemValue="11:00:00" itemLabel="11:00am"/>
+                        <f:selectItem itemValue="12:00:00" itemLabel="12:00pm"/>
+                        <f:selectItem itemValue="13:00:00" itemLabel="1:00pm"/>
+                        <f:selectItem itemValue="14:00:00" itemLabel="2:00pm"/>
+                        <f:selectItem itemValue="14:00:00" itemLabel="2:00pm"/>
+                        <f:selectItem itemValue="15:00:00" itemLabel="3:00pm"/>
+                        <f:selectItem itemValue="16:00:00" itemLabel="4:00pm"/>
+                        <f:selectItem itemValue="17:00:00" itemLabel="5:00pm"/>
 
-                                    </h:selectOneMenu>
-                                </div>
+                    </h:selectOneMenu>
+                </div>
 
-                                <div class="enfermedades">
-                                    <h:outputLabel for="enfermedades">Enfermedades Crónicas y Alergias (sino tiene ninguna deje vacío este campo)</h:outputLabel>
-                                    <h:inputTextarea id="enfermedades" value="" disabled="true" cols="20" rows="1" />
-                                </div>
+                <div class="enfermedades">
+                    <h:outputLabel for="enfermedades">Enfermedades Crónicas y Alergias (sino tiene ninguna deje vacío este campo)</h:outputLabel>
+                    <h:inputTextarea id="enfermedades" value="" disabled="true" cols="20" rows="1" />
+                </div>
 
-                                <div class="motivo">
-                                    <h:outputLabel for="razon">¿Cuál es la razón de su cita? (escriba sus síntomas)</h:outputLabel>
-                                    <h:inputTextarea id="razon" value="Dolores constantes de cabeza" disabled="true" cols="20" rows="1" />
-                                </div>
+                <div class="motivo">
+                    <h:outputLabel for="razon">¿Cuál es la razón de su cita? (escriba sus síntomas)</h:outputLabel>
+                    <h:inputTextarea id="razon" value="Dolores constantes de cabeza" disabled="true" cols="20" rows="1" />
+                </div>
 
-                                <div class="submit">
-                                    <h:commandButton id="programarCita" value="Aprobar Cita" styleClass="disenoBoton" action="#" />.
-                                </div>
-                            </h:form>
-            </h:panelGroup>
-
-    </ui:define>
-</ui:composition>
+                <div class="submit">
+                    <h:commandLink value="Regresar" actionListener="./index.xhtml"/>
+                    <h:commandButton id="programarCita" value="Aprobar Cita" styleClass="disenoBoton" action="#" />.
+                </div>
+            </h:form>
+        </h:panelGroup>
+        <ui:include src="../../layouts/footer.xhtml"/>
+    </h:body>
+</html>
 

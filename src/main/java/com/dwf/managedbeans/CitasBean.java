@@ -7,6 +7,7 @@ import com.dwf.entities.CitasEntity;
 import com.dwf.models.CitasModel;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.RequestScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 
 import java.text.SimpleDateFormat;
@@ -31,14 +32,12 @@ public class CitasBean {
     private double altura;
 
     public CitasBean() {
-
-
+        //usuario = (UsuariosEntity) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        usuario = model2.obtenerUsuario("PAC230001");
     }
 
     public String programarCita () {
-        usuario = model2.obtenerUsuario(codUsuario);
-        usuario.setAltura(altura);
-        usuario.setPeso(peso);
+        cita.setEstado("En Espera de Aprobación");
         model.guardarCita(cita, usuario, codEspecialidad);
         return "index.xhtml?faces-redirect=true";
     }

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+   <h:head>
+      <ui:include src="../../layouts/head.xhtml"/>
+      <h:outputStylesheet library="css" name="especialidades-medicas-style.css"/>
+   </h:head>
+   <h:body>
+      <article>
+         <section class="especialidadesMedica">
+            <h:form>
+               <h:commandLink action="#" styleClass="div-especialidades" title="Cardiología">
+                  <h:graphicImage library="imgs" name="corazon.png" alt="" styleClass="imagenEspecialidad" />
+                  <h:outputText value="Cardiología" styleClass="especialidadNombre" />
+                  <h:outputText value="La cardiología es la rama de la medicina que se encarga del estudio, diagnóstico y tratamiento de las enfermedades del corazón y del sistema circulatorio. Es médica, pero no quirúrgica; los especialistas en el abordaje quirúrgico del corazón son el cirujano cardiaco o el cirujano cardiovascular." styleClass="especialidadDescripcion" />
+               </h:commandLink>
+
+               <h:commandLink action="#" styleClass="div-especialidades" title="Medicina General">
+                  <h:graphicImage library="imgs" name="medicina.png" alt="" styleClass="imagenEspecialidad" />
+                  <h:outputText value="Medicina General" styleClass="especialidadNombre" />
+                  <h:outputText value="La medicina general constituye el primer nivel de atención médica y es imprescindible para la prevención, detección, tratamiento y seguimiento de las enfermedades crónicas estabilizadas, responsabilizándose del paciente en su conjunto, para decidir su derivación a los especialistas cuando alguna patología se descompense." styleClass="especialidadDescripcion" />
+               </h:commandLink>
+            </h:form>
+         </section>
+      </article>
+      <h:commandLink value="regresar" actionListener="./index.xhtml"/>
+      <ui:include src="../../layouts/footer.xhtml"/>
+   </h:body>
+</html>

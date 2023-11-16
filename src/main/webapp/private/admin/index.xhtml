@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: Leandro
-  Date: 12/10/2023
-  Time: 21:03
--->
-<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
-                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                 xmlns:f="http://xmlns.jcp.org/jsf/core"
->
-                 <!--template="../../layouts/layout-admin.xhtml"-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+                 <!--template="../../layouts/menu-admin.xhtml"-->
     <h:head>
         <ui:include src="../../layouts/head.xhtml"/>
         <h:outputStylesheet library="css" name="anuncios-style.css"/>
@@ -18,6 +14,7 @@
         <h:outputStylesheet library="css" name="anuncio.css"/>
     </h:head>
     <body>
+        <ui:include src="../../layouts/menu-admin.xhtml"/>
         <h:form>
             <h:panelGroup layout="block" styleClass="allContainer">
                 <h:panelGroup layout="block" styleClass="bienvenida" id="container-bienvenida">
@@ -53,5 +50,6 @@
 
             </h:panelGroup>
         </h:form>
+        <ui:include src="../../layouts/footer.xhtml"/>
     </body>
-</ui:composition>
+</html>

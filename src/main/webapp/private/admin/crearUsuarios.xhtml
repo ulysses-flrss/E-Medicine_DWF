@@ -14,7 +14,7 @@
 <h:body>
     <div class="cont-main">
         <div>
-            <ui:include src="../../layouts/menu.xhtml"/>
+            <ui:include src="../../layouts/menu-admin.xhtml"/>
         </div>
         <div class="cont-body">
             <h:form id="registrar">
@@ -108,6 +108,7 @@
                         <i class="fa-solid fa-eye-slash icon" id="eye2" title="Mostrar Contraseña"></i>
                     </div>
 
+                    <h:commandLink value="Regresar" actionListener="./index.xhtml"/>
                     <h:commandButton value="Enviar" action="#{usuariosBean.guardar()}"/>
                 </div>
             </h:form>

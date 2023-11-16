@@ -4,7 +4,8 @@
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
-        template="../../layouts/layout-formularios.xhtml">
+        template="../../layouts/layout-formularios.xhtml"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
    <ui:define name="head">
       <h:outputStylesheet library="css" name="cita-style.css"/>
    </ui:define>
@@ -13,23 +14,19 @@
                <h:form styleClass="form-container">
 
                   <div class="perfil">
-                     <h:outputLabel for="idUsuario">Codigo de Cliente:</h:outputLabel>
-
-                  <h:inputText id="idUsuario" value="#{citasBean.codUsuario}"/>
-                     <div class="citaFamiliar">
-                        <h:outputLabel for="citaFamiliar" class="genero">Cita Familiar: </h:outputLabel>
-                        <h:selectBooleanCheckbox id="citaFamiliar" required="true" />
-                     </div>
+                     <h:outputLabel for="idUsuario">Código de Cliente:</h:outputLabel>
+                     <h:inputText id="idUsuario" value="#{citasBean.codUsuario}" disabled="true"/>
+                     <h:inputHidden value="#{usuariosBean.usuario.codigo}"/>
                   </div>
 
                   <div class="peso">
                      <h:outputLabel for="pe">Peso(lb): </h:outputLabel>
-                     <h:inputText id="pe" value="#{citasBean.peso}" placeholder="Peso en Libras" />
+                     <h:inputText id="pe" value="#{usuariosBean.usuario.peso}" placeholder="Peso en Libras" />
                   </div>
 
                   <div class="altura">
                      <h:outputLabel for="al">Altura(cm): </h:outputLabel>
-                     <h:inputText id="al" value="#{citasBean.altura}" placeholder="Altura en cm" />
+                     <h:inputText id="al" value="#{usuariosBean.usuario.altura}" placeholder="Altura en cm" />
                   </div>
 
 
@@ -45,8 +42,10 @@
                   </div>
 
                   <div class="fecha">
-                     <h:outputLabel for="fechaCita">Fecha de Cita:</h:outputLabel>
-                     <h:inputText id="fechaCita" value="#{citasBean.cita.fechaCita}" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
+                     <h:outputLabel for="fecha" value="Birth">Fecha de la Cita:</h:outputLabel>
+                     <h:inputText id="fecha" a:type="date" value="#{citasBean.cita.fechaCita}" required="true" requiredMessage="Ingrese fecha de la cita">
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                     </h:inputText>
                   </div>
 
                   <div class="doctor">
@@ -65,7 +64,6 @@
                         <f:selectItem itemValue="15:00:00" itemLabel="3:00pm"/>
                         <f:selectItem itemValue="16:00:00" itemLabel="4:00pm"/>
                         <f:selectItem itemValue="17:00:00" itemLabel="5:00pm"/>
-
                      </h:selectOneMenu>
                   </div>
 

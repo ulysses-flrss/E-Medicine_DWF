@@ -59,7 +59,7 @@ public class UsuariosModel {
             }
             //em.getTransaction().begin();
             em.persist(usuario);
-            //em.getTransaction().commit();
+                //em.getTransaction().commit();
             em.close();
             return 1;
         } catch (Exception ex) {

@@ -1,64 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
-
-<h:head>
-    <ui:include src="head.xhtml" />
-</h:head>
-
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
     <nav class="barNav">
         <ul class="barNavegacion" id="nav">
             <li class="bar-item">
-                <h:outputLink value="../recepcion/index.xhtml" styleClass="bar-link">
+                <h:outputLink value="./index.xhtml" styleClass="bar-link">
                     <h:graphicImage library="imgs" name="logoEMedicine.png" alt="Logo de E-Medicine" class="logo" title="Inicio" />
                     <span class="link-text" id="welcome-text">E-Medicine</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-cita" title="Programar Cita">
-                <h:outputLink value="../recepcion/index.xhtml" styleClass="bar-link">
+                <h:outputLink value="./index.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-book-medical icon"></i>
                     <span class="link-text">Citas Pendientes</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-citasP" title="Familiares">
-                <h:outputLink value="../recepcion/verCitasAprobadas.xhtml" styleClass="bar-link">
+                <h:outputLink value="./verCitasAprobadas.xhtml" styleClass="bar-link">
                     <i class="fa-regular fa-calendar-check icon"></i>
                     <span class="link-text">Citas Aprobadas</span>
                 </h:outputLink>
             </li>
 
             <li class="bar-item" id="li-familiares" title="Familiares">
-                <h:outputLink value="../recepcion/verCitasRechazadas.xhtml" styleClass="bar-link">
+                <h:outputLink value="./verCitasRechazadas.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-person-breastfeeding icon"></i>
                     <span class="link-text">Citas Rechazadas</span>
                 </h:outputLink>
             </li>
 
-
             <li class="bar-item">
-                <h:outputLink value="/public/viewLogin.xhtml" styleClass="bar-link">
+                <h:outputLink value="../../index.xhtml" styleClass="bar-link">
                     <i class="fa-solid fa-user icon"></i>
                     <span class="link-text">Cerrar Sesión</span>
                 </h:outputLink>
             </li>
         </ul>
     </nav>
-
-    <ui:insert name="contenido">
-        Default content
-    </ui:insert>
-
-    <ui:include src="footer.xhtml" />
-</h:body>
-
-</html>
+</ui:composition>
