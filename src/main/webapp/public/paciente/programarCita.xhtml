@@ -11,17 +11,11 @@
    <ui:define name="contenido">
       <h:panelGroup class="all-container">
                <h:form styleClass="form-container">
-                  <h:inputHidden id="idUsuario" value="" />
-                  <h:inputHidden id="nameUsuario" value="" />
 
                   <div class="perfil">
-                     <h:outputLabel for="idPerfil">Perfil:</h:outputLabel>
-                     <h:selectOneMenu id="idPerfil" value="" styleClass="selectDinamic">
-                        <f:selectItem itemValue="" itemLabel="-- Seleccione un Perfil --" />
-                        <f:selectItem itemValue="perfil1" itemLabel="Perfil 1"/>
-                        <f:selectItem itemValue="perfil2" itemLabel="Perfil 2"/>
-                        <f:selectItem itemValue="perfil3" itemLabel="Perfil 3"/>
-                     </h:selectOneMenu>
+                     <h:outputLabel for="idUsuario">Codigo de Cliente:</h:outputLabel>
+
+                  <h:inputText id="idUsuario" value="#{citasBean.codUsuario}"/>
                      <div class="citaFamiliar">
                         <h:outputLabel for="citaFamiliar" class="genero">Cita Familiar: </h:outputLabel>
                         <h:selectBooleanCheckbox id="citaFamiliar" required="true" />
@@ -30,38 +24,34 @@
 
                   <div class="peso">
                      <h:outputLabel for="pe">Peso(lb): </h:outputLabel>
-                     <h:inputText id="pe" value="" placeholder="Peso en Libras" />
+                     <h:inputText id="pe" value="#{citasBean.peso}" placeholder="Peso en Libras" />
                   </div>
 
                   <div class="altura">
                      <h:outputLabel for="al">Altura(cm): </h:outputLabel>
-                     <h:inputText id="al" value="" placeholder="Altura en cm" />
+                     <h:inputText id="al" value="#{citasBean.altura}" placeholder="Altura en cm" />
                   </div>
 
-                  <div class="fecha">
-                     <h:outputLabel for="fn">Fecha de Nacimiento:</h:outputLabel>
-                     <h:inputText id="fn" type="date" value="" />
-                  </div>
 
                   <div class="especialidad-medica">
                      <h:outputLabel for="em">Especialidad Médica:</h:outputLabel>
-                     <h:selectOneMenu id="em" value="" styleClass="selectDinamic">
+                     <h:selectOneMenu id="em" value="#{citasBean.codEspecialidad}" styleClass="selectDinamic">
                         <f:selectItem itemValue="" itemLabel="-- Seleccione una Especialidad --" />
-                        <f:selectItem itemValue="Cardiologia" itemLabel="Cardiología"/>
-                        <f:selectItem itemValue="MedicinaGeneral" itemLabel="Medicina General"/>
-                        <f:selectItem itemValue="Neurologia" itemLabel="Neurología"/>
-                        <f:selectItem itemValue="Pediatria" itemLabel="Pediatría"/>
+                        <f:selectItem itemValue="1" itemLabel="Cardiología"/>
+                        <f:selectItem itemValue="2" itemLabel="Medicina General"/>
+                        <f:selectItem itemValue="3" itemLabel="Neurología"/>
+                        <f:selectItem itemValue="4" itemLabel="Pediatría"/>
                      </h:selectOneMenu>
                   </div>
 
                   <div class="fecha">
                      <h:outputLabel for="fechaCita">Fecha de Cita:</h:outputLabel>
-                     <h:inputText id="fechaCita" value="" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
+                     <h:inputText id="fechaCita" value="#{citasBean.cita.fechaCita}" placeholder="Ingrese la fecha de su Cita" autocomplete="off" />
                   </div>
 
                   <div class="doctor">
                      <h:outputLabel for="hc">Hora de Cita</h:outputLabel>
-                     <h:selectOneMenu id="hc" value="">
+                     <h:selectOneMenu id="hc" value="#{citasBean.cita.horaCita}">
                         <f:selectItem itemValue="" itemLabel="-- Seleccione la Hora de su Cita --" />
                         <f:selectItem itemValue="7:00:00" itemLabel="7:00am" />
                         <f:selectItem itemValue="8:00:00" itemLabel="8:00am"/>
@@ -81,16 +71,16 @@
 
                   <div class="enfermedades">
                      <h:outputLabel for="enfermedades">Enfermedades Crónicas y Alergias (sino tiene ninguna deje vacío este campo)</h:outputLabel>
-                     <h:inputTextarea id="enfermedades" value="" cols="50" rows="1" />
+                     <h:inputTextarea id="enfermedades" value="#{citasBean.cita.sintomas}" cols="50" rows="1" />
                   </div>
 
                   <div class="motivo">
                      <h:outputLabel for="razon">¿Cuál es la razón de su cita? (escriba sus síntomas)</h:outputLabel>
-                     <h:inputTextarea id="razon" value="" cols="50" rows="1" />
+                     <h:inputTextarea id="razon" value="#{citasBean.cita.razonCita}" cols="50" rows="1" />
                   </div>
 
                   <div class="submit">
-                     <h:commandButton id="programarCita" value="Programar Cita" styleClass="disenoBoton" action="#" />
+                     <h:commandButton id="programarCita" value="Programar Cita" styleClass="disenoBoton" action="#{citasBean.programarCita()}" />
                   </div>
                </h:form>
       </h:panelGroup>
