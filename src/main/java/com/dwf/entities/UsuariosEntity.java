@@ -232,7 +232,7 @@ public class UsuariosEntity {
         return especialidadesByCodEspecialidad;
     }
 
-    public void setEspecialidadesByCodEspecialidad(EspecialidadesEntity especialidadesByCodEspecialidad) {
+    public void setEspecialidadesByCodEspecialidad(Class<EspecialidadesEntity> especialidadesEntityClass, EspecialidadesEntity especialidadesByCodEspecialidad) {
         this.especialidadesByCodEspecialidad = especialidadesByCodEspecialidad;
     }
 

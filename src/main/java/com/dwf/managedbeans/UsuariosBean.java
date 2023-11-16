@@ -2,17 +2,22 @@ package com.dwf.managedbeans;
 
 import com.dwf.entities.UsuariosEntity;
 import com.dwf.models.UsuariosModel;
+import jakarta.faces.annotation.FacesConfig;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.RequestScoped;
+import jakarta.faces.bean.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class UsuariosBean {
     private int codRol;
     private int codEspecialidad;
@@ -25,7 +30,7 @@ public class UsuariosBean {
         model = new UsuariosModel();
     }
 
-    public void crearCodigo(AjaxBehaviorEvent e) {
+    public void crearCodigo() {
         String tipo = null, codigo = "";
         boolean salir = false;
         do {
@@ -65,6 +70,66 @@ public class UsuariosBean {
         usuario.setCodigo(codigo);
     }
 
+    public String login() {
+        System.out.println("verificando usuario");
+        String redirect = "";
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        try{
+            usuario = model.iniciarSesion(usuario);
+            if (usuario != null) {
+                context.getExternalContext().getSessionMap().put("usuario", usuario);
+                redirect = redirectUser(usuario.getRolesByCodRol().getCodigo());
+            } else {
+                FacesMessage message = new FacesMessage("Usuario y/o contraseña inválido.");
+                context.addMessage(null, message);
+                redirect = "./login.xhtml";
+            }
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error: " + ex);
+        }
+
+        return redirect;
+    }
+
+    public String register() {
+        System.out.println("registrando usuario");
+        String redirect = "";
+        codRol = 4;
+        crearCodigo();
+
+        try{
+            if (model.guardarUsuario(usuario, codRol, codEspecialidad) > 0)
+                redirect = "./paciente/index.xhtml";
+            else
+                redirect = "./register.xhtml";
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error: " + ex);
+            redirect = "./registro.xhtml";
+        }
+
+        return redirect;
+    }
+
+    public String redirectUser(int userRol) {
+        switch(userRol) {
+            case 1:
+                return "../private/admin/index.xhtml";
+
+            case 2:
+                return "../private/doctor/index.xhtml";
+
+            case 3:
+                return "../private/recepcion/index.xhtml";
+
+            case 4:
+                return "../private/doctor/index.xhtml";
+
+            default:
+                return "./login.xhtml";
+        }
+    }
+
     public List<UsuariosEntity> listar() {
         return model.listarUsuarios();
     }
@@ -75,7 +140,9 @@ public class UsuariosBean {
     }
 
     public void guardar() {
-        model.guardarUsuario(usuario);
+        if (model.guardarUsuario(usuario, codRol, codEspecialidad) > 0) {
+
+        }
     }
 
     public void modificar() {

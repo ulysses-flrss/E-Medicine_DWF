@@ -21,33 +21,116 @@
                 </h:outputLink>
             </li>
 
-            <li class="bar-item" id="li-cita" title="Programar Cita">
-                <h:outputLink value="private/paciente/programarCita.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-book-medical icon"></i>
-                    <span class="link-text">Programar Cita Médica</span>
-                </h:outputLink>
-            </li>
+            <h:panelGroup rendered="#{usuariosBean.rol eq 'Administrador'}">
+                <li class="bar-item" id="li-citaA" title="Programar Cita">
+                    <h:outputLink value="#" styleClass="bar-link">
+                        <i class='fa-solid fa-user-gear icon'></i>
+                        <span class="link-text">Gestionar Usuarios</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
 
-            <li class="bar-item" id="li-citasP" title="Familiares">
-                <h:outputLink value="private/paciente/citasProgramadas.xhtml" styleClass="bar-link">
-                    <i class="fa-regular fa-calendar-check icon"></i>
-                    <span class="link-text">Citas Programadas</span>
-                </h:outputLink>
-            </li>
+            <h:panelGroup rendered="#{usuariosBean.rol eq 'Administrador'}">
+                <li class="bar-item" id="li-citasA" title="Familiares">
+                    <h:outputLink value="#" styleClass="bar-link">
+                        <i class="fa-regular fa-calendar-check icon"></i>
+                        <span class="link-text">Gestionar Citas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
 
-            <li class="bar-item" id="li-familiares" title="Familiares">
-                <h:outputLink value="private/paciente/familiares.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-person-breastfeeding icon"></i>
-                    <span class="link-text">Perfiles Familiares</span>
-                </h:outputLink>
-            </li>
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Administrador'}">
+                <li class="bar-item" id="li-doctorA" title="Especialidades Médicas">
+                    <h:outputLink value="#" styleClass="bar-link">
+                        <i class="fa-solid fa-user-doctor icon"></i>
+                        <span class="link-text">Gestionar Especialidades Medicas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
 
-            <li class="bar-item" id="li-doctor" title="Especialidades Médicas">
-                <h:outputLink value="public/especialides.xhtml" styleClass="bar-link">
-                    <i class="fa-solid fa-user-doctor icon"></i>
-                    <span class="link-text">Especialidades Medicas</span>
-                </h:outputLink>
-            </li>
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Administrador'}">
+                <li class="bar-item" id="li-comentariosA" title="Anuncios">
+                    <h:outputLink value="./anuncios.xhtml" styleClass="bar-link">
+                        <i class='fa-solid fa-bullhorn icon'></i>
+                        <span class="link-text">Gestionar Anuncios</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Doctor'}">
+                <li class="bar-item" id="li-citaD" title="Citas Programadas">
+                    <h:outputLink value="./citas.xhtml" styleClass="bar-link">
+                        <i class='fa-solid fa-calendar-days icon'></i>
+                        <span class="link-text">Citas Programadas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Doctor'}">
+                <li class="bar-item" id="li-citasAD" title="Agregar Anuncios">
+                    <h:outputLink value="./anuncios.xhtml" styleClass="bar-link">
+                        <i class='fa-solid fa-bullhorn icon'></i>
+                        <span class="link-text">Gestionar Anuncios</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Recepcionista'}">
+                <li class="bar-item" id="li-cita" title="Programar Cita">
+                    <h:outputLink value="./citas.xhtml" styleClass="bar-link">
+                        <i class="fa-solid fa-book-medical icon"></i>
+                        <span class="link-text">Gestionar Citas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Paciente'}">
+                <li class="bar-item" id="li-citaP" title="Programar Cita">
+                    <h:outputLink value="private/paciente/programarCita.xhtml" styleClass="bar-link">
+                        <i class="fa-solid fa-book-medical icon"></i>
+                        <span class="link-text">Programar Cita Médica</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.rol eq 'Paciente'}">
+                <li class="bar-item" id="li-citasP" title="Familiares"> <!-- Paciente -->
+                    <h:outputLink value="private/paciente/citasProgramadas.xhtml" styleClass="bar-link">
+                        <i class="fa-regular fa-calendar-check icon"></i>
+                        <span class="link-text">Citas Programadas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+
+            <h:panelGroup rendered="#{pruebaBean.rolUsuario eq 'Paciente'}">
+                <li class="bar-item" id="li-familiaresP" title="Familiares">
+                    <h:outputLink value="private/paciente/familiares.xhtml" styleClass="bar-link">
+                        <i class="fa-solid fa-person-breastfeeding icon"></i>
+                        <span class="link-text">Perfiles Familiares</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{usuariosBean.rolUsuario eq 'Paciente' or 'Recepcionista' or 'Doctor'}">
+                <li class="bar-item" id="li-doctor" title="Especialidades Médicas">
+                    <h:outputLink value="public/especialides.xhtml" styleClass="bar-link">
+                        <i class="fa-solid fa-user-doctor icon"></i>
+                        <span class="link-text">Especialidades Medicas</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
+
+
+
+            <h:panelGroup rendered="#{usuariosBean.usuario.rolesByCodRol.nombre eq 'Paciente' or 'Recepcionista'}">
+                <li class="bar-item" id="li-comentarios" title="Anuncios">
+                    <h:outputLink value="#" styleClass="bar-link">
+                        <i class="fa-solid fa-message icon"></i>
+                        <span class="link-text">Anuncios</span>
+                    </h:outputLink>
+                </li>
+            </h:panelGroup>
 
             <li class="bar-item" id="li-faq" title="Preguntas Frecuentes">
                 <h:outputLink value="public/faq.xhtml" styleClass="bar-link">
@@ -56,12 +139,6 @@
                 </h:outputLink>
             </li>
 
-            <li class="bar-item" id="li-comentarios" title="Anuncios">
-                <h:outputLink value="#" styleClass="bar-link">
-                    <i class="fa-solid fa-message icon"></i>
-                    <span class="link-text">Anuncios</span>
-                </h:outputLink>
-            </li>
 
             <li class="bar-item" id="li-about" title="Acerca de Nosotros">
                 <h:outputLink value="#" styleClass="bar-link">
@@ -71,7 +148,7 @@
             </li>
 
             <li class="bar-item">
-                <h:outputLink value="#" styleClass="bar-link">
+                <h:outputLink value="#{usuariosBean.cerrarSesion()}" styleClass="bar-link">
                     <i class="fa-solid fa-user icon"></i>
                     <span class="link-text">Cerrar Sesión</span>
                 </h:outputLink>

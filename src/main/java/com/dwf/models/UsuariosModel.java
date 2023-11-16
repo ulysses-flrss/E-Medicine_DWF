@@ -1,5 +1,7 @@
 package com.dwf.models;
 
+import com.dwf.entities.EspecialidadesEntity;
+import com.dwf.entities.RolesEntity;
 import com.dwf.entities.UsuariosEntity;
 import com.dwf.util.JpaUtil;
 import jakarta.persistence.EntityManager;
@@ -9,8 +11,8 @@ import jakarta.persistence.Query;
 import java.util.List;
 
 public class UsuariosModel {
+    EntityManager em = JpaUtil.getEntityManager();
     public List<UsuariosEntity> listarUsuarios() {
-        EntityManager em = JpaUtil.getEntityManager();
         try {
             Query consulta = em.createQuery("SELECT u FROM UsuariosEntity u");
             List<UsuariosEntity> lista = consulta.getResultList();
@@ -46,12 +48,18 @@ public class UsuariosModel {
         return false;
     }
 
-    public int guardarUsuario (UsuariosEntity usuario) {
+    public int guardarUsuario (UsuariosEntity usuario, int codRol, int codEspecialidad) {
         EntityManager em = JpaUtil.getEntityManager();
         try {
-            em.getTransaction().begin();
+            RolesEntity rolForm = em.find(RolesEntity.class, codRol);
+            usuario.setRolesByCodRol(rolForm);
+            if (codRol == 2){
+                EspecialidadesEntity especialidadForm = em.find(EspecialidadesEntity.class, codEspecialidad);
+                usuario.setEspecialidadesByCodEspecialidad(EspecialidadesEntity.class, especialidadForm);
+            }
+            //em.getTransaction().begin();
             em.persist(usuario);
-            em.getTransaction().commit();
+            //em.getTransaction().commit();
             em.close();
             return 1;
         } catch (Exception ex) {
@@ -94,5 +102,27 @@ public class UsuariosModel {
             System.out.println("Error: " + ex.getMessage());
             return 0;
         }
+    }
+
+    public UsuariosEntity iniciarSesion (UsuariosEntity usuario) {
+        UsuariosEntity user = null;
+        try{
+            /*Query query = em.createQuery("SELECT u FROM UsuariosEntity u WHERE u.codigo=:codigo AND u.pass=:pass");
+            query.setParameter("codigo", usuario.getCodigo());
+            query.setParameter("pass", usuario.getPass());
+            List<UsuariosEntity> result = query.getResultList();
+            if (!result.isEmpty())
+                user = result.get(0);*/
+            List<UsuariosEntity> usuarios = listarUsuarios();
+            for (UsuariosEntity usu : usuarios) {
+                if (usu.getCorreo().equals(usuario.getCorreo()) && usu.getPass().equals(usuario.getPass())) {
+                    return usu;
+                }
+            }
+        } catch(Exception ex) {
+            System.out.println(ex);
+            System.out.println("Falló en inicio de sesión");
+        }
+        return user;
     }
 }

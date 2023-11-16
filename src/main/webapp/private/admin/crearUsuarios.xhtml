@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <h:outputStylesheet library="css" name="estructura.css"/>
     <ui:include src="../../layouts/head.xhtml"/>
@@ -30,7 +31,7 @@
                             <h:selectOneMenu id="rol" value="#{usuariosBean.codRol}" styleClass="selects">
                                 <f:selectItem itemValue="0" itemLabel="-- Seleccione un Rol --"/>
                                 <f:selectItems value="#{rolesBean.listRoles}" var="roles" itemValue="#{roles.codigo}" itemLabel="#{roles.nombre}"/>
-                                <f:ajax event="change" render="registrar:codigoV registrar:codigo" execute="registrar:rol" listener="#{usuariosBean.crearCodigo}"/>
+                                <f:ajax event="change" render="registrar:codigoV registrar:codigo" execute="registrar:rol" listener="#{usuariosBean.crearCodigo()}"/>
                             </h:selectOneMenu>
                         </div>
                     </div>
@@ -55,8 +56,10 @@
                     </div>
 
                     <div class="campos">
-                        <h:outputLabel for="registrar:fecha" value="Fecha de Nacimiento:"/>
-                        <h:inputText id="fecha" value="#{usuariosBean.usuario.fechaNacimiento}" type="date" required="true"/>
+                        <h:outputLabel for="registrar:fecha" value="Birth"></h:outputLabel>
+                        <h:inputText id="fecha" a:type="date" value="#{usuariosBean.usuario.fechaNacimiento}" required="true" requiredMessage="Ingrese fecha de nacimiento">
+                            <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        </h:inputText>
                     </div>
 
                     <div class="campos">
